@@ -26,9 +26,7 @@ Una **parte privada**, que permite la gestión de la cuenta de usuario y realiza
 
 ## Funcionamiento del servicio interno
 
-Gestión de usuarios
-
-Los administradores pueden gestionar los distintos cursos ofertados
+Gestión de usuarios y cursos
 
 Envío de correo al cliente con la confirmación del curso y la información del mismo
 
