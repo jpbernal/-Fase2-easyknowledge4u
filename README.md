@@ -32,6 +32,8 @@ Los administradores pueden gestionar los distintos cursos ofertados
 
 Envío de correo al cliente con la confirmación del curso y la información del mismo
 
+Servicio de pago online
+
 ## Integrantes
 
 Juan Pablo Bernal Gutiérrez - jp.bernal.2018@alumnos.urjc.es - https://github.com/jpbernal
