@@ -20,9 +20,9 @@ Una **parte privada**, que permite la gestión de la cuenta de usuario y realiza
 
 **Cursos**: los distintos cursos ofertados en nuestra web, pueden ser de educación primaria, secundaría, bachillerato o universitarios.
 
-**Inscripción**: contendrá la pantalla con los campos a rellenar con los datos del usuario para la inscripción y el coste del curso.
+**Inscripción**: contiene la pantalla con los campos a rellenar con los datos del usuario para la inscripción y el coste del curso.
 
-**Contacto**: contendrá una ubicación de la academia con google maps, un email de contacto, número de contacto además de un buzón de mensajes vía e-mail.
+**Contacto**: contiene una ubicación de la academia con google maps, un email de contacto, número de contacto además de un buzón de mensajes vía e-mail.
 
 ## Funcionamiento del servicio interno
 
