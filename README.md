@@ -12,7 +12,7 @@ La aplicación tendrá 2 partes:
 
 Una **parte pública**, que permite navegar por la web, navegar por los distintos servicios, inicio de sesión y contacto.
 
-Una **parte privada**, que permitirá la gestión de la cuenta de usuario y realizar los pagos de los cursos así como ver en cuales esta inscrito.
+Una **parte privada**, que permite la gestión de la cuenta de usuario y realizar los pagos de los cursos así como ver en cuales esta inscrito.
 
 ## Entidades
 
