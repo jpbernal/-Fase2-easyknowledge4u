@@ -8,7 +8,7 @@ Proyecto de la asignatura de Desarrollo de Aplicaciones Distribuidas del grado d
 
 ## Descripción de la aplicación
 
-La aplicación tendrá 2 partes:
+La aplicación tiene 2 partes:
 
 Una **parte pública**, que permite navegar por la web, navegar por los distintos servicios, inicio de sesión y contacto.
 
