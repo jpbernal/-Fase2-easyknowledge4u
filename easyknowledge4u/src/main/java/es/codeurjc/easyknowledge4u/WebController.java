@@ -3,19 +3,43 @@ package es.codeurjc.easyknowledge4u;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WebController {
 	
-	
-	@GetMapping("/")
-	public String Index () {
+	@GetMapping("/index")
+	public String Index (Model model) {
 		
-		
-		return "Index.html";
+		return "index";
 		
 	}
 
+	@GetMapping("/login")
+	public String Login(Model model) {
+		
+		return "login.html";
+	}
 	
+	@GetMapping("/contact")
+	public String Contacto(Model model) {
+		
+		return "contact.html";
+	}
+	
+	
+	@RequestMapping("/registro")
+	public String Registro(Model model, @RequestParam String nombre, 
+			@RequestParam String email, 
+			@RequestParam String password) {
+		
+		model.addAttribute("nombre", nombre);
+		model.addAttribute("email", email);
+		model.addAttribute("contraseña", password);
+		
+	
+		return "registro-completado";
+	}
 	
 }
