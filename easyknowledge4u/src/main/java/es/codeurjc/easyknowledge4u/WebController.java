@@ -9,21 +9,13 @@ public class WebController {
 	
 	
 	@GetMapping("/")
-	public String x() {
+	public String Index () {
 		
 		
-		return "";
+		return "Index.html";
 		
 	}
 
 	
-	@GetMapping ("/hello-pepe")
-	public String helloPepe(Model model) {
-		
-		model.addAttribute("name", "Pepe");
-		
-		return "hello";
-		
-	}
 	
 }
