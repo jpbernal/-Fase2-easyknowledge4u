@@ -12,7 +12,6 @@ import es.codeurjc.easyknowledge4u.Repositories.ClienteRepository;
 @Controller
 public class WebController {
 	
-	
 	@Autowired
 	private ClienteRepository clientes;
 	
