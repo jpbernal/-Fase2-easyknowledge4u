@@ -1,4 +1,4 @@
-package es.codeurjc.easyknowledge4u;
+package es.codeurjc.easyknowledge4u.Controller;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;
