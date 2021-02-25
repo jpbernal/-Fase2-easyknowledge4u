@@ -1,19 +1,30 @@
 package es.codeurjc.easyknowledge4u.Controller;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.codeurjc.easyknowledge4u.Models.Cliente;
 import es.codeurjc.easyknowledge4u.Repositories.ClienteRepository;
 
 @Controller
 public class WebController {
 	
 	@Autowired
-	private ClienteRepository clientes;
+	private ClienteRepository cliente;
+	
+	@PostConstruct
+    public void init() {
+        cliente.save(new Cliente("Nombre", "Correo@gmail.com", "password123", "direccion1", null));
+    }
 	
 	@GetMapping("/index")
 	public String Index (Model model) {
@@ -23,25 +34,25 @@ public class WebController {
 	}
 
 	@GetMapping("/login")
-	public String Login(Model model) {
+	public String Login (Model model) {
 		
 		return "login";
 	}
 	
 	@GetMapping("/register")
-	public String Register(Model model) {
+	public String Register (Model model) {
 		return "register";
 	}
 	
 	@GetMapping("/contact")
-	public String Contacto(Model model) {
+	public String Contacto (Model model) {
 		
 		return "contact";
 	}
 	
 	
 	@RequestMapping("/registro")
-	public String Registro(Model model, @RequestParam String Nombre, 
+	public String Registro (Model model, @RequestParam String Nombre, 
 			@RequestParam String Email, 
 			@RequestParam String Contraseña) {
 		model.addAttribute("nombre", Nombre);

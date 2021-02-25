@@ -21,8 +21,7 @@ public class Cliente {
 	
 	public Cliente() {}
 
-	public Cliente(String nombre, String correo, String password,
-			String direccion, Cursos[] cursos) {
+	public Cliente(String nombre, String correo, String password,String direccion, Cursos[] cursos) {
 		super();
 		this.nombre = nombre;
 		this.correo = correo;
