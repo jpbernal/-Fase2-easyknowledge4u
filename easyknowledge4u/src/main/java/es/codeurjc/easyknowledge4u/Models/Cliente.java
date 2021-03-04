@@ -1,6 +1,5 @@
 package es.codeurjc.easyknowledge4u.Models;
 
-import java.util.Arrays;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,11 +17,11 @@ public class Cliente {
 	private String correo;
 	private String password;
 	private String direccion;
-	private Cursos[] cursos;
+	private Cursos cursos;
 	
 	public Cliente() {}
 
-	public Cliente(String nombre, String correo, String password,String direccion, Cursos[] cursos) {
+	public Cliente(String nombre, String correo, String password,String direccion, Cursos cursos) {
 		super();
 		this.nombre = nombre;
 		this.correo = correo;
@@ -73,21 +72,21 @@ public class Cliente {
 		this.direccion = direccion;
 	}
 
-	public Cursos[] getCursos() {
+	public Cursos getCursos() {
 		return cursos;
 	}
 	
 
-	public void setCursos(Cursos[] cursos) {
-		this.cursos = cursos;
+	public void setCursos(Cursos curso) {
+		this.cursos = curso;
 	}
 
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nombre=" + nombre + 
 				", correo=" + correo + ", password=" + password + 
-				", direccion=" + direccion  + ", pedidos=" 
-				+ Arrays.toString(cursos) + "]";
+				", direccion=" + direccion  + ", Cursos=" 
+				+ cursos + "]";
 	}
 
 }

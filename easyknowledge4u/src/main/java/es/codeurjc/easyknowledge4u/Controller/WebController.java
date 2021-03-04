@@ -1,6 +1,7 @@
 package es.codeurjc.easyknowledge4u.Controller;
 
-import javax.annotation.PostConstruct;
+
+import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.PostConstruct;
+
 import es.codeurjc.easyknowledge4u.Models.*;
 import es.codeurjc.easyknowledge4u.Repositories.ClienteRepository;
 import es.codeurjc.easyknowledge4u.Repositories.CursoRepository;
@@ -22,13 +25,16 @@ public class WebController {
 	@Autowired
 	private ClienteRepository cliente;
 	@Autowired
-	private CursoRepository Cursos;
+	private CursoRepository cursos;
 	
 	
 	@PostConstruct
     public void init() {
 		Cliente prueba = new Cliente ("Nombre", "Correo@gmail.com", "password123", "direccion1", null);
+		Cursos cursoPrueba = new Cursos (prueba, 23, "tipo");
+		prueba.setCursos(cursoPrueba);
 		cliente.save(prueba);
+		cursos.save(cursoPrueba);
 		
 		
     }
@@ -60,7 +66,7 @@ public class WebController {
 		boolean check = false;
 		Cliente prueba = cliente.findByNombreUsuario(Nombre);
 		if(prueba != null && prueba.getPassword().equals(password)) check = true;
-		model.addAttribute("Incio sesion correcto",check);
+		model.addAttribute("IncioSesionCorrecto",check);
 		return "inicio-sesion";
 	}
 	
