@@ -35,8 +35,6 @@ public class WebController {
 		prueba.setCursos(cursoPrueba);
 		cliente.save(prueba);
 		cursos.save(cursoPrueba);
-		
-		
     }
 	
 	@GetMapping("/index")
