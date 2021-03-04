@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 @Entity
 public class Cliente {
 	
@@ -28,6 +29,7 @@ public class Cliente {
 		this.password = password;
 		this.direccion = direccion;
 		this.cursos = cursos;
+		
 	}
 
 	public Long getId() {
@@ -71,10 +73,10 @@ public class Cliente {
 		this.direccion = direccion;
 	}
 
-
 	public Cursos[] getCursos() {
 		return cursos;
 	}
+	
 
 	public void setCursos(Cursos[] cursos) {
 		this.cursos = cursos;

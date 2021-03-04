@@ -12,18 +12,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import es.codeurjc.easyknowledge4u.Models.Cliente;
+import es.codeurjc.easyknowledge4u.Models.*;
 import es.codeurjc.easyknowledge4u.Repositories.ClienteRepository;
+import es.codeurjc.easyknowledge4u.Repositories.CursoRepository;
 
 @Controller
 public class WebController {
 	
 	@Autowired
 	private ClienteRepository cliente;
+	@Autowired
+	private CursoRepository Cursos;
+	
 	
 	@PostConstruct
     public void init() {
-        cliente.save(new Cliente("Nombre", "Correo@gmail.com", "password123", "direccion1", null));
+		Cliente prueba = new Cliente ("Nombre", "Correo@gmail.com", "password123", "direccion1", null);
+		cliente.save(prueba);
+		
+		
     }
 	
 	@GetMapping("/index")
@@ -44,6 +51,19 @@ public class WebController {
 		return "register";
 	}
 	
+	@RequestMapping("/comprobarLogin")
+	
+	public String comprobarLogin(Model model,
+			@RequestParam String Nombre,
+			@RequestParam String password) {
+		
+		boolean check = false;
+		Cliente prueba = cliente.findByNombreUsuario(Nombre);
+		if(prueba != null && prueba.getPassword().equals(password)) check = true;
+		model.addAttribute("Incio sesion correcto",check);
+		return "inicio-sesion";
+	}
+	
 	@GetMapping("/contact")
 	public String Contacto (Model model) {
 		
@@ -58,7 +78,11 @@ public class WebController {
 		model.addAttribute("nombre", Nombre);
 		model.addAttribute("email", Email);
 		model.addAttribute("password", Contraseña);
+		
+		Cliente prueba = new Cliente(Nombre,Email,Contraseña, null, null);
+		cliente.save(prueba);
 		return "registro";
 	
 	}	
+	
 }
