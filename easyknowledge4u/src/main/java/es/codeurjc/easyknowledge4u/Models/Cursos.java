@@ -17,7 +17,6 @@ public class Cursos {
 	private String tipoCurso;
 	
 	public Cursos() {}
-
 	public Cursos(Cliente cliente, float coste, String tipoCurso) {
 		super();
 		this.cliente = cliente;

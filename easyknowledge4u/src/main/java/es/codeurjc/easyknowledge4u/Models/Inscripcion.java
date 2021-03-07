@@ -19,7 +19,6 @@ public class Inscripcion {
 	private String fecha;
 	
 	public Inscripcion() {}
-
 	public Inscripcion(Cliente cliente, Cursos[] cursos, float coste, String fecha) {
 		super();
 		this.cliente = cliente;

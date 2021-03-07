@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Entity
 public class Cliente {
 	
@@ -20,7 +19,6 @@ public class Cliente {
 	private Cursos cursos;
 	
 	public Cliente() {}
-
 	public Cliente(String nombre, String correo, String password,String direccion, Cursos cursos) {
 		super();
 		this.nombre = nombre;
@@ -46,7 +44,6 @@ public class Cliente {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 
 	public String getCorreo() {
 		return correo;
@@ -76,7 +73,6 @@ public class Cliente {
 		return cursos;
 	}
 	
-
 	public void setCursos(Cursos curso) {
 		this.cursos = curso;
 	}

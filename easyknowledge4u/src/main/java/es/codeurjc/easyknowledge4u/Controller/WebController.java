@@ -27,7 +27,6 @@ public class WebController {
 	@Autowired
 	private CursoRepository cursos;
 	
-	
 	@PostConstruct
     public void init() {
 		Cliente prueba = new Cliente ("Nombre", "Correo@gmail.com", "password123", "direccion1", null);
@@ -52,29 +51,25 @@ public class WebController {
 	
 	@GetMapping("/register")
 	public String Register (Model model) {
+		
 		return "register";
 	}
 	
 	@RequestMapping("/comprobarLogin")
-	
 	public String comprobarLogin(Model model,
 			@RequestParam String Nombre,
 			@RequestParam String password) {
-		
 		boolean check = false;
 		Cliente prueba = cliente.findByNombreUsuario(Nombre);
 		if(prueba != null && prueba.getPassword().equals(password)) check = true;
 		model.addAttribute("IncioSesionCorrecto",check);
 		return "inicio-sesion";
 	}
-	
 	@GetMapping("/contact")
 	public String Contacto (Model model) {
 		
 		return "contact";
 	}
-	
-	
 	@RequestMapping("/registro")
 	public String Registro (Model model, @RequestParam String Nombre, 
 			@RequestParam String Email, 

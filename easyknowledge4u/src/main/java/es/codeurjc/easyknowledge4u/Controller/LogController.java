@@ -18,8 +18,6 @@ public class LogController {
 		log.debug("Debug message");
 		log.info("Info message");
 		log.error("ErrOr message");
-		
-		
 		return "page";
 	}
 }
