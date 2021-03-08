@@ -2,10 +2,13 @@ package es.codeurjc.easyknowledge4u.Models;
 
 import java.util.Arrays;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Inscripcion {
@@ -13,7 +16,9 @@ public class Inscripcion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@OneToOne(cascade=CascadeType.ALL)
 	private Cliente cliente;
+	@ManyToOne
 	private Cursos[] cursos;
 	private float coste;
 	private String fecha;

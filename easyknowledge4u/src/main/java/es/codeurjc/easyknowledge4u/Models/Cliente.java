@@ -1,10 +1,12 @@
 package es.codeurjc.easyknowledge4u.Models;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cliente {
@@ -16,6 +18,7 @@ public class Cliente {
 	private String correo;
 	private String password;
 	private String direccion;
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Cursos cursos;
 	
 	public Cliente() {}
@@ -26,7 +29,6 @@ public class Cliente {
 		this.password = password;
 		this.direccion = direccion;
 		this.cursos = cursos;
-		
 	}
 
 	public Long getId() {

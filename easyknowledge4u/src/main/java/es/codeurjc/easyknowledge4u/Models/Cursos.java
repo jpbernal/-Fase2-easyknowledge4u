@@ -1,10 +1,12 @@
 package es.codeurjc.easyknowledge4u.Models;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cursos {
@@ -12,6 +14,7 @@ public class Cursos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@OneToOne(cascade=CascadeType.ALL)
 	private Cliente cliente;
 	private float coste;
 	private String tipoCurso;

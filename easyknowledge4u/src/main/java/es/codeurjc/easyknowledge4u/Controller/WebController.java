@@ -1,23 +1,18 @@
 package es.codeurjc.easyknowledge4u.Controller;
 
 
-import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.PostConstruct;
 
 import es.codeurjc.easyknowledge4u.Models.*;
-import es.codeurjc.easyknowledge4u.Repositories.ClienteRepository;
-import es.codeurjc.easyknowledge4u.Repositories.CursoRepository;
+import es.codeurjc.easyknowledge4u.Repositories.*;
+
 
 @Controller
 public class WebController {
@@ -26,14 +21,18 @@ public class WebController {
 	private ClienteRepository cliente;
 	@Autowired
 	private CursoRepository cursos;
+	@Autowired
+	private InscripcionRepository inscripcion;
+	
 	
 	@PostConstruct
     public void init() {
-		Cliente prueba = new Cliente ("Nombre", "Correo@gmail.com", "password123", "direccion1", null);
+		/*Cliente prueba = new Cliente ("Nombre", "Correo@gmail.com", "password123", "direccion1", null);
 		Cursos cursoPrueba = new Cursos (prueba, 23, "tipo");
 		prueba.setCursos(cursoPrueba);
 		cliente.save(prueba);
-		cursos.save(cursoPrueba);
+	cursos.save(cursoPrueba);
+	*/
     }
 	
 	@GetMapping("/index")
@@ -57,8 +56,9 @@ public class WebController {
 	
 	@RequestMapping("/comprobarLogin")
 	public String comprobarLogin(Model model,
-			@RequestParam String Nombre,
-			@RequestParam String password) {
+	@RequestParam String Nombre,
+	@RequestParam String password) {
+		
 		boolean check = false;
 		Cliente prueba = cliente.findByNombreUsuario(Nombre);
 		if(prueba != null && prueba.getPassword().equals(password)) check = true;
@@ -72,8 +72,9 @@ public class WebController {
 	}
 	@RequestMapping("/registro")
 	public String Registro (Model model, @RequestParam String Nombre, 
-			@RequestParam String Email, 
-			@RequestParam String Contraseña) {
+	@RequestParam String Email, 
+	@RequestParam String Contraseña) {
+		
 		model.addAttribute("nombre", Nombre);
 		model.addAttribute("email", Email);
 		model.addAttribute("password", Contraseña);
