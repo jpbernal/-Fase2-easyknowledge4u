@@ -58,7 +58,6 @@ public class WebController {
 	public String comprobarLogin(Model model,
 	@RequestParam String Nombre,
 	@RequestParam String Contraseña) {
-		
 		boolean check = false;
 		Cliente prueba = cliente.findByNombre(Nombre);
 		if(prueba != null && prueba.getPassword().equals(Contraseña)) check = true;
