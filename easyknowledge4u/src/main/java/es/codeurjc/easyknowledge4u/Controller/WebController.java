@@ -27,12 +27,12 @@ public class WebController {
 	
 	@PostConstruct
     public void init() {
-		/*Cliente prueba = new Cliente ("Nombre", "Correo@gmail.com", "password123", "direccion1", null);
+		Cliente prueba = new Cliente ("Nombre", "Correo@gmail.com", "password123", "direccion1", null);
 		Cursos cursoPrueba = new Cursos (prueba, 23, "tipo");
 		prueba.setCursos(cursoPrueba);
 		cliente.save(prueba);
-	cursos.save(cursoPrueba);
-	*/
+		cursos.save(cursoPrueba);
+	
     }
 	
 	@GetMapping("/index")
@@ -57,12 +57,13 @@ public class WebController {
 	@RequestMapping("/comprobarLogin")
 	public String comprobarLogin(Model model,
 	@RequestParam String Nombre,
-	@RequestParam String password) {
+	@RequestParam String Contraseña) {
 		
 		boolean check = false;
-		Cliente prueba = cliente.findByNombreUsuario(Nombre);
-		if(prueba != null && prueba.getPassword().equals(password)) check = true;
+		Cliente prueba = cliente.findByNombre(Nombre);
+		if(prueba != null && prueba.getPassword().equals(Contraseña)) check = true;
 		model.addAttribute("IncioSesionCorrecto",check);
+		model.addAttribute("Nombre", Nombre);
 		return "inicio-sesion";
 	}
 	@GetMapping("/contact")
@@ -75,9 +76,9 @@ public class WebController {
 	@RequestParam String Email, 
 	@RequestParam String Contraseña) {
 		
-		model.addAttribute("nombre", Nombre);
-		model.addAttribute("email", Email);
-		model.addAttribute("password", Contraseña);
+		model.addAttribute("Nombre", Nombre);
+		model.addAttribute("Email", Email);
+		model.addAttribute("Contraseña", Contraseña);
 		
 		Cliente prueba = new Cliente(Nombre,Email,Contraseña, null, null);
 		cliente.save(prueba);

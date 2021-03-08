@@ -8,6 +8,6 @@ import es.codeurjc.easyknowledge4u.Models.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	
-	Cliente findByNombreUsuario(String Nombre);
+	Cliente findByNombre(String Nombre);
 
 }
