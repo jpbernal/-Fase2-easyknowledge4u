@@ -1,16 +1,18 @@
 {{>header}}
 
-{{#IncioSesionCorrecto}}
+
+{{#comprobarLogin}}
 
 <p>Inicio de sesion correcto, bienvenido de nuevo!</p>
 
-<p> Nombre: {{Nombre}} </p>
+{{/comprobarLogin}}
 
-{{/IncioSesionCorrecto}}
-{^IncioSesionCorrecto}}
+
+{{^comprobarLogin}}
 
 <p> Error al iniciar sesion, intentalo de nuevo <p>
 	
-{{/IncioSesionCorrecto}}	
+{{/comprobarLogin}}	
+
 
 {{>footer}}

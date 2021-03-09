@@ -56,13 +56,13 @@ public class WebController {
 	
 	@RequestMapping("/comprobarLogin")
 	public String comprobarLogin(Model model,
-	@RequestParam String Nombre,
-	@RequestParam String Contraseña) {
+	@RequestParam String correo,
+	@RequestParam String password) {
 		boolean check = false;
-		Cliente prueba = cliente.findByNombre(Nombre);
-		if(prueba != null && prueba.getPassword().equals(Contraseña)) check = true;
-		model.addAttribute("IncioSesionCorrecto",check);
-		model.addAttribute("Nombre", Nombre);
+		Cliente prueba = cliente.findByCorreo(correo);
+		if(prueba != null && prueba.getPassword().equals(password)) check = true;
+		model.addAttribute("comprobarLogin",check);
+		model.addAttribute("Correo", correo);
 		return "inicio-sesion";
 	}
 	@GetMapping("/contact")
