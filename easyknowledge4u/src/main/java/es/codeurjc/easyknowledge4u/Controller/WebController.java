@@ -85,4 +85,10 @@ public class WebController {
 	
 	}	
 	
+	@GetMapping("/cursos")
+	public String Cursos (Model model) {
+		
+		return "cursos";
+	}
+	
 }
