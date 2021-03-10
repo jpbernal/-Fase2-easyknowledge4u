@@ -33,3 +33,14 @@ Servicio de pago online
 ## Integrantes
 
 Juan Pablo Bernal Gutiérrez - jp.bernal.2018@alumnos.urjc.es - https://github.com/jpbernal
+
+-----------------------
+
+## Fase 2 
+
+-----------------------
+
+Diagrama de navegación:
+
+![Diagrama de navegación](https://user-images.githubusercontent.com/43385877/110509987-02652480-8103-11eb-9131-45df49ed904c.png)
+
