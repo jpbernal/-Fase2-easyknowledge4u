@@ -13,7 +13,6 @@ import javax.annotation.PostConstruct;
 import es.codeurjc.easyknowledge4u.Models.*;
 import es.codeurjc.easyknowledge4u.Repositories.*;
 
-
 @Controller
 public class WebController {
 	
