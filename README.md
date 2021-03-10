@@ -51,6 +51,9 @@ Diagrama UML:
 
 Diagrama E/R:
 
+![Diagrama E:R](https://user-images.githubusercontent.com/43385877/110686777-16328880-81e0-11eb-98b2-4d5931d46e81.png)
+
+
 -----------------------
 
 A continuación se muestran capturas de pantallas de la Fase 2 de la aplicacion de las pantallas principales.
