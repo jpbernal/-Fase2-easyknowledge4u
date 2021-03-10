@@ -44,3 +44,81 @@ Diagrama de navegación:
 
 ![Diagrama de navegación](https://user-images.githubusercontent.com/43385877/110509987-02652480-8103-11eb-9131-45df49ed904c.png)
 
+Diagrama UML:
+
+![Diagrama UML](https://user-images.githubusercontent.com/43385877/110636624-c4243f80-81ac-11eb-8a4e-68d51aad64ea.png)
+
+
+Diagrama E/R:
+
+-----------------------
+
+A continuación se muestran capturas de pantallas de la Fase 2 de la aplicacion de las pantallas principales.
+
+Pantalla principal - Index:
+
+<img width="1440" alt="index" src="https://user-images.githubusercontent.com/43385877/110630690-fbdbb900-81a5-11eb-917a-65825e00c6ef.png">
+
+¿Eres nuevo? - Registro:
+
+Aquí deberemos introducir un nombre, correo electrónico y contraseña.
+
+<img width="1440" alt="registro" src="https://user-images.githubusercontent.com/43385877/110630787-19a91e00-81a6-11eb-8a17-d6028100ca17.png">
+
+Si nos registramos correctamente nos dirigirá a esta pantalla:
+
+<img width="1440" alt="registro correcto" src="https://user-images.githubusercontent.com/43385877/110630985-5a089c00-81a6-11eb-9cd1-14118788f677.png">
+
+Si ya tenemos una cuenta creada podremos iniciar sesion con nuestro credenciales, en este caso correo y contraseña
+
+<img width="1440" alt="inicio sesion" src="https://user-images.githubusercontent.com/43385877/110631088-71e02000-81a6-11eb-8431-f67a99f30627.png">
+
+Si los creedenciales introducidos son correctos, nos dirigirá a esta pantalla:
+
+<img width="1440" alt="inicio sesion correcto" src="https://user-images.githubusercontent.com/43385877/110631155-83292c80-81a6-11eb-9684-1fb21d91e02d.png">
+
+
+En el index podremos navegar a diferentes pestañas, entre ellas, los cursos disponibles y una pestaña de contacto.
+
+Cursos:
+
+<img width="1440" alt="cursos" src="https://user-images.githubusercontent.com/43385877/110631262-9e943780-81a6-11eb-84de-9c0b6df8077c.png">
+
+
+Contacto:
+
+<img width="1440" alt="contacto" src="https://user-images.githubusercontent.com/43385877/110631308-abb12680-81a6-11eb-9b49-2f4ab4cdadf8.png">
+
+
+
+La aplicación utiliza una base de datos embedida H2, la cual podemos acceder vía web:
+
+<img width="1440" alt="h2-console" src="https://user-images.githubusercontent.com/43385877/110631391-c08dba00-81a6-11eb-8238-d66d3e65f269.png">
+
+
+Una vez accedemos nos encontramos con esta pantalla, en la que vemos las distintas entidades y sus relaciones
+
+<img width="1440" alt="bd" src="https://user-images.githubusercontent.com/43385877/110631475-da2f0180-81a6-11eb-89db-2dfcd78a8db8.png">
+
+
+Navegando por las entidades principales, tenemos cliente, curso e inscripción.
+
+Cliente:
+
+<img width="1440" alt="cliente_BD" src="https://user-images.githubusercontent.com/43385877/110631611-fe8ade00-81a6-11eb-947c-0efeeaa2d997.png">
+
+Cursos:
+
+<img width="1440" alt="curso_bd" src="https://user-images.githubusercontent.com/43385877/110631634-05195580-81a7-11eb-8046-545017f90bf4.png">
+
+
+
+
+
+
+
+
+
+
+
+
