@@ -46,6 +46,9 @@ Diagrama de navegación:
 
 Diagrama UML:
 
+![Diagrama UML](https://user-images.githubusercontent.com/43385877/110636624-c4243f80-81ac-11eb-8a4e-68d51aad64ea.png)
+
+
 Diagrama E/R:
 
 -----------------------
