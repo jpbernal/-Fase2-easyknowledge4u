@@ -126,7 +126,7 @@ public class WebController {
 		model.addAttribute("Nombre", Nombre);
 		model.addAttribute("Email", Email);
 		model.addAttribute("Texto", Texto);
-		
+	
 		Contacto contactoprueba = new Contacto (Nombre, Email, Texto);
 		contacto.save(contactoprueba);
 		
