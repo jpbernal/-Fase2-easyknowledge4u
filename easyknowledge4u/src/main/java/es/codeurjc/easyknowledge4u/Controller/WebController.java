@@ -22,6 +22,8 @@ public class WebController {
 	private CursoRepository cursos;
 	@Autowired
 	private InscripcionRepository inscripcion;
+	@Autowired
+	private ContactoRepository contacto;
 	
 	
 	@PostConstruct
@@ -133,8 +135,8 @@ public class WebController {
 		model.addAttribute("Email", Email);
 		model.addAttribute("Texto", Texto);
 		
-		Contacto contacto = new Contacto (Nombre, Email, Texto);
-		Contacto.save(contacto);
+		Contacto contactoprueba = new Contacto (Nombre, Email, Texto);
+		contacto.save(contactoprueba);
 		return "contacto-enviado";
 	
 	}
