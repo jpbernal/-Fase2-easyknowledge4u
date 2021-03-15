@@ -98,12 +98,9 @@ public class WebController {
 			usuario.añadirCurso(matematicas);
 			clienteRepository.saveAndFlush(usuario);
 			
-			model.addAttribute("añadirCursoM", true);
-			
-		}
-			
+			model.addAttribute("añadirCursoM", true);			
+		}	
 		return "tipo-cursoM";
-		
 	}
 	
 	@RequestMapping("/añadirCursoI")
@@ -120,10 +117,8 @@ public class WebController {
 			
 			model.addAttribute("añadirCursoI", true);
 			
-		}
-			
-		return "tipo-cursoI";
-		
+		}	
+		return "tipo-cursoI";		
 	}
 	
 	@RequestMapping("/añadirCursoE")
@@ -138,12 +133,9 @@ public class WebController {
 			usuario.añadirCurso(ingles);
 			clienteRepository.saveAndFlush(usuario);
 			
-			model.addAttribute("añadirCursoE", true);
-			
-		}
-			
-		return "tipo-cursoE";
-		
+			model.addAttribute("añadirCursoE", true);			
+		}			
+		return "tipo-cursoE";		
 	}
 	
 	@RequestMapping("/guardarContacto")
@@ -158,8 +150,6 @@ public class WebController {
 		Contacto contactoprueba = new Contacto (Nombre, Email, Texto);
 		contactoRepository.save(contactoprueba);
 		
-		return "contacto-enviado";
-	
-	}
-	
+		return "contacto-enviado";	
+	}	
 }
