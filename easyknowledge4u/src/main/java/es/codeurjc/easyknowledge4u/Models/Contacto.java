@@ -4,6 +4,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
+
 public class Contacto {
 	
 
@@ -46,13 +48,12 @@ public class Contacto {
 		this.correo = correo;
 	}
 
-	
+	public String getTexto() {
+		return texto;
+	}
+
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
 	
-	public String getTexto(String texto) {
-		return texto;
-	}
-
 }

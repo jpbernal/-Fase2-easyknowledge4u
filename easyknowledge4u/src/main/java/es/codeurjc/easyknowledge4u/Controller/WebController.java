@@ -19,21 +19,14 @@ public class WebController {
 	@Autowired
 	private ClienteRepository cliente;
 	@Autowired
-	private CursoRepository cursos;
-	@Autowired
-	private InscripcionRepository inscripcion;
-	@Autowired
 	private ContactoRepository contacto;
+	@Autowired
+	private CursoRepository cursos;
+	
 	
 	
 	@PostConstruct
     public void init() {
-		Cliente prueba = new Cliente ("Nombre", "Correo@gmail.com", "password123", "direccion1", null);
-		Cursos cursoPrueba = new Cursos (prueba, 23, "tipo");
-		prueba.setCursos(cursoPrueba);
-		cliente.save(prueba);
-		cursos.save(cursoPrueba);
-	
     }
 	
 	@GetMapping("/index")
@@ -64,6 +57,7 @@ public class WebController {
 		if(prueba != null && prueba.getPassword().equals(password)) check = true;
 		model.addAttribute("comprobarLogin",check);
 		model.addAttribute("Correo", correo);
+		
 		return "inicio-sesion";
 	}
 		
@@ -72,6 +66,7 @@ public class WebController {
 		
 		return "contact";
 	}
+	
 	@RequestMapping("/registro")
 	public String Registro (Model model, @RequestParam String Nombre, 
 	@RequestParam String Email, 
@@ -83,8 +78,8 @@ public class WebController {
 		
 		Cliente prueba = new Cliente(Nombre,Email,Contraseña, null, null);
 		cliente.save(prueba);
+		
 		return "registro";
-	
 	}	
 	
 	@GetMapping("/cursos")
@@ -100,6 +95,7 @@ public class WebController {
 		model.addAttribute("Matematicas", tipoCurso);
 		Cursos matematicas = new Cursos (null, 230, tipoCurso);
 		cursos.save(matematicas);
+		
 		return "tipo-cursoM";
 		
 	}
@@ -111,6 +107,7 @@ public class WebController {
 		model.addAttribute("Informatica", tipoCurso);
 		Cursos informatica = new Cursos (null, 250, tipoCurso);
 		cursos.save(informatica);
+		
 		return "tipo-cursoI";
 		
 	}
@@ -122,6 +119,7 @@ public class WebController {
 		model.addAttribute("Ingles", tipoCurso);
 		Cursos ingles = new Cursos (null, 180, tipoCurso);
 		cursos.save(ingles);
+		
 		return "tipo-cursoE";
 		
 	}
@@ -137,6 +135,7 @@ public class WebController {
 		
 		Contacto contactoprueba = new Contacto (Nombre, Email, Texto);
 		contacto.save(contactoprueba);
+		
 		return "contacto-enviado";
 	
 	}

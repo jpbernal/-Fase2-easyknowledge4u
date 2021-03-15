@@ -7,5 +7,5 @@ import es.codeurjc.easyknowledge4u.Models.Contacto;
 
 public interface ContactoRepository extends JpaRepository<Contacto, Long>{
 	
-	
+
 }
