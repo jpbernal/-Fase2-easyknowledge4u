@@ -61,10 +61,10 @@ public class WebController {
 		return "inicio-sesion";
 	}
 		
-	@GetMapping("/contact")
+	@GetMapping("/contacto")
 	public String Contacto (Model model) {
 		
-		return "contact";
+		return "contacto";
 	}
 	
 	@RequestMapping("/registro")
