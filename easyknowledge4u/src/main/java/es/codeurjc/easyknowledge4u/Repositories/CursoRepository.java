@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import es.codeurjc.easyknowledge4u.Models.Cursos;
 
 public interface CursoRepository extends JpaRepository<Cursos, Long>{
+	
+		Cursos findBytipoCurso(String tipoCurso);
 
 }

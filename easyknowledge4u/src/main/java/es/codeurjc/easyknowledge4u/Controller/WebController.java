@@ -64,6 +64,7 @@ public class WebController {
 		model.addAttribute("Correo", correo);
 		return "inicio-sesion";
 	}
+		
 	@GetMapping("/contact")
 	public String Contacto (Model model) {
 		
@@ -88,6 +89,54 @@ public class WebController {
 	public String Cursos (Model model) {
 		
 		return "cursos";
+	}
+		
+	@RequestMapping("/añadirCursoM")
+	public String añadirCursoM(Model model,
+	@RequestParam String tipoCurso) {
+		
+		model.addAttribute("Matematicas", tipoCurso);
+		Cursos matematicas = new Cursos (null, 230, tipoCurso);
+		cursos.save(matematicas);
+		return "tipo-cursoM";
+		
+	}
+	
+	@RequestMapping("/añadirCursoI")
+	public String añadirCursoI(Model model,
+	@RequestParam String tipoCurso) {
+		
+		model.addAttribute("Informatica", tipoCurso);
+		Cursos informatica = new Cursos (null, 250, tipoCurso);
+		cursos.save(informatica);
+		return "tipo-cursoI";
+		
+	}
+	
+	@RequestMapping("/añadirCursoE")
+	public String añadirCursoE(Model model,
+	@RequestParam String tipoCurso) {
+		
+		model.addAttribute("Ingles", tipoCurso);
+		Cursos ingles = new Cursos (null, 180, tipoCurso);
+		cursos.save(ingles);
+		return "tipo-cursoE";
+		
+	}
+	
+	@RequestMapping("/guardarContacto")
+	public String guardarContacto (Model model, @RequestParam String Nombre, 
+	@RequestParam String Email, 
+	@RequestParam String Texto) {
+		
+		model.addAttribute("Nombre", Nombre);
+		model.addAttribute("Email", Email);
+		model.addAttribute("Texto", Texto);
+		
+		Contacto contacto = new Contacto (Nombre, Email, Texto);
+		Contacto.save(contacto);
+		return "contacto-enviado";
+	
 	}
 	
 }
