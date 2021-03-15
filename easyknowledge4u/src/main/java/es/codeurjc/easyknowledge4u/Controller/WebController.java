@@ -17,13 +17,11 @@ import es.codeurjc.easyknowledge4u.Repositories.*;
 public class WebController {
 	
 	@Autowired
-	private ClienteRepository cliente;
+	private ClienteRepository clienteRepository;
 	@Autowired
-	private ContactoRepository contacto;
+	private ContactoRepository contactoRepository;
 	@Autowired
-	private CursoRepository cursos;
-	
-	
+	private CursoRepository cursosRepository;
 	
 	@PostConstruct
     public void init() {
@@ -53,7 +51,7 @@ public class WebController {
 	@RequestParam String correo,
 	@RequestParam String password) {
 		boolean check = false;
-		Cliente prueba = cliente.findByCorreo(correo);
+		Cliente prueba = clienteRepository.findByCorreo(correo);
 		if(prueba != null && prueba.getPassword().equals(password)) check = true;
 		model.addAttribute("comprobarLogin",check);
 		model.addAttribute("Correo", correo);
@@ -77,7 +75,7 @@ public class WebController {
 		model.addAttribute("Contraseña", Contraseña);
 		
 		Cliente prueba = new Cliente(Nombre,Email,Contraseña, null, null);
-		cliente.save(prueba);
+		clienteRepository.save(prueba);
 		
 		return "registro";
 	}	
@@ -89,31 +87,61 @@ public class WebController {
 	}
 		
 	@RequestMapping("/añadirCursoM")
-	public String añadirCursoM(Model model) {
+	public String añadirCursoM(Model model, @RequestParam String Nombre) {
 		
-		Cursos matematicas = new Cursos (null, 230, "matematicas"); // parametros-> cliente, precio, tipo
-		cursos.save(matematicas);
+		Cliente usuario = clienteRepository.findByNombre(Nombre);
 		
+		if(usuario != null) {
+			
+			Cursos matematicas = new Cursos (usuario, 230, "matematicas");
+			cursosRepository.save(matematicas);
+			usuario.añadirCurso(matematicas);
+			clienteRepository.saveAndFlush(usuario);
+			
+			model.addAttribute("añadirCursoM", true);
+			
+		}
+			
 		return "tipo-cursoM";
 		
 	}
 	
 	@RequestMapping("/añadirCursoI")
-	public String añadirCursoI(Model model) {
+	public String añadirCursoI(Model model, @RequestParam String Nombre) {
 		
-		Cursos informatica = new Cursos (null, 250, "informatica");
-		cursos.save(informatica);
+		Cliente usuario = clienteRepository.findByNombre(Nombre);
 		
+		if(usuario != null) {
+			
+			Cursos informatica = new Cursos (usuario, 230, "informatica");
+			cursosRepository.save(informatica);
+			usuario.añadirCurso(informatica);
+			clienteRepository.saveAndFlush(usuario);
+			
+			model.addAttribute("añadirCursoI", true);
+			
+		}
+			
 		return "tipo-cursoI";
 		
 	}
 	
 	@RequestMapping("/añadirCursoE")
-	public String añadirCursoE(Model model) {
+	public String añadirCursoE(Model model, @RequestParam String Nombre) {
 		
-		Cursos ingles = new Cursos (null, 180, "ingles");
-		cursos.save(ingles);
+		Cliente usuario = clienteRepository.findByNombre(Nombre);
 		
+		if(usuario != null) {
+			
+			Cursos ingles = new Cursos (usuario, 230, "ingles");
+			cursosRepository.save(ingles);
+			usuario.añadirCurso(ingles);
+			clienteRepository.saveAndFlush(usuario);
+			
+			model.addAttribute("añadirCursoE", true);
+			
+		}
+			
 		return "tipo-cursoE";
 		
 	}
@@ -128,7 +156,7 @@ public class WebController {
 		model.addAttribute("Texto", Texto);
 	
 		Contacto contactoprueba = new Contacto (Nombre, Email, Texto);
-		contacto.save(contactoprueba);
+		contactoRepository.save(contactoprueba);
 		
 		return "contacto-enviado";
 	

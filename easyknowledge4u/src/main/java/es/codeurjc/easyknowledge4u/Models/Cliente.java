@@ -1,12 +1,15 @@
 package es.codeurjc.easyknowledge4u.Models;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente {
@@ -18,17 +21,18 @@ public class Cliente {
 	private String correo;
 	private String password;
 	private String direccion;
-	@ManyToOne(cascade=CascadeType.ALL)
-	private Cursos cursos;
+	@OneToMany(cascade=CascadeType.ALL)
+	private List <Cursos> cursos;
 	
 	public Cliente() {}
 	public Cliente(String nombre, String correo, String password,String direccion, Cursos cursos) {
 		super();
+		this.cursos = new ArrayList<Cursos>();
 		this.nombre = nombre;
 		this.correo = correo;
 		this.password = password;
 		this.direccion = direccion;
-		this.cursos = cursos;
+	
 	}
 
 	public Long getId() {
@@ -70,13 +74,11 @@ public class Cliente {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-
-	public Cursos getCursos() {
-		return cursos;
-	}
 	
-	public void setCursos(Cursos curso) {
-		this.cursos = curso;
+	public void añadirCurso(Cursos c) {
+		
+		this.cursos.add(c);
+		
 	}
 
 	@Override
