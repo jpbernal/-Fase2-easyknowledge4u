@@ -89,11 +89,9 @@ public class WebController {
 	}
 		
 	@RequestMapping("/añadirCursoM")
-	public String añadirCursoM(Model model,
-	@RequestParam String tipoCurso) {
+	public String añadirCursoM(Model model) {
 		
-		model.addAttribute("Matematicas", tipoCurso);
-		Cursos matematicas = new Cursos (null, 230, tipoCurso);
+		Cursos matematicas = new Cursos (null, 230, "matematicas"); // parametros-> cliente, precio, tipo
 		cursos.save(matematicas);
 		
 		return "tipo-cursoM";
@@ -101,11 +99,9 @@ public class WebController {
 	}
 	
 	@RequestMapping("/añadirCursoI")
-	public String añadirCursoI(Model model,
-	@RequestParam String tipoCurso) {
+	public String añadirCursoI(Model model) {
 		
-		model.addAttribute("Informatica", tipoCurso);
-		Cursos informatica = new Cursos (null, 250, tipoCurso);
+		Cursos informatica = new Cursos (null, 250, "informatica");
 		cursos.save(informatica);
 		
 		return "tipo-cursoI";
@@ -113,11 +109,9 @@ public class WebController {
 	}
 	
 	@RequestMapping("/añadirCursoE")
-	public String añadirCursoE(Model model,
-	@RequestParam String tipoCurso) {
+	public String añadirCursoE(Model model) {
 		
-		model.addAttribute("Ingles", tipoCurso);
-		Cursos ingles = new Cursos (null, 180, tipoCurso);
+		Cursos ingles = new Cursos (null, 180, "ingles");
 		cursos.save(ingles);
 		
 		return "tipo-cursoE";
