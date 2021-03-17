@@ -85,13 +85,15 @@ En el index podremos navegar a diferentes pestañas, entre ellas, los cursos dis
 
 Cursos:
 
-<img width="1440" alt="cursos" src="https://user-images.githubusercontent.com/43385877/110631262-9e943780-81a6-11eb-84de-9c0b6df8077c.png">
+Podremos inscribirnos a diferentes cursos, introduciendo primero el nombre del cliente. Si el nombre que introducimos no esta registrado previamente en la base de datos como cliente, no dejará inscribirse en dicho curso.
 
+<img width="1440" alt="Captura de pantalla 2021-03-17 a las 21 36 30" src="https://user-images.githubusercontent.com/43385877/111535055-f9123280-8768-11eb-802b-ae80a6cd4d91.png">
 
 Contacto:
 
-<img width="1440" alt="contacto" src="https://user-images.githubusercontent.com/43385877/110631308-abb12680-81a6-11eb-9b49-2f4ab4cdadf8.png">
+Podremos enviar un mensaje a modo feedback o consulta que queramos realizar, introduciendo nuestro nombre y correo. No será necesario que el usuario este registrado previamente.
 
+<img width="1440" alt="Captura de pantalla 2021-03-17 a las 21 39 45" src="https://user-images.githubusercontent.com/43385877/111535375-51e1cb00-8769-11eb-90be-2ce817a3adf1.png">
 
 
 La aplicación utiliza una base de datos embedida H2, la cual podemos acceder vía web:
