@@ -51,7 +51,7 @@ Diagrama UML:
 
 Diagrama E/R:
 
-![Diagrama E:R](https://user-images.githubusercontent.com/43385877/110686777-16328880-81e0-11eb-98b2-4d5931d46e81.png)
+![Untitled Document](https://user-images.githubusercontent.com/43385877/111541267-8a38d780-8770-11eb-9bf4-c06194ed658d.png)
 
 
 -----------------------
