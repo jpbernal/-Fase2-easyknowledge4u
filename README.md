@@ -103,20 +103,24 @@ La aplicación utiliza una base de datos embedida H2, la cual podemos acceder v�
 
 Una vez accedemos nos encontramos con esta pantalla, en la que vemos las distintas entidades y sus relaciones
 
-<img width="1440" alt="bd" src="https://user-images.githubusercontent.com/43385877/110631475-da2f0180-81a6-11eb-89db-2dfcd78a8db8.png">
+<img width="1440" alt="Captura de pantalla 2021-03-17 a las 21 42 21" src="https://user-images.githubusercontent.com/43385877/111535760-c0bf2400-8769-11eb-8184-2050cf24e119.png">
 
 
 Navegando por las entidades principales, tenemos cliente, curso e inscripción.
 
 Cliente:
 
-<img width="1440" alt="cliente_BD" src="https://user-images.githubusercontent.com/43385877/110631611-fe8ade00-81a6-11eb-947c-0efeeaa2d997.png">
+<img width="1440" alt="Captura de pantalla 2021-03-17 a las 21 45 16" src="https://user-images.githubusercontent.com/43385877/111536088-17c4f900-876a-11eb-979e-7600217eb5a6.png">
+
+Contacto:
+<img width="1440" alt="Captura de pantalla 2021-03-17 a las 21 45 56" src="https://user-images.githubusercontent.com/43385877/111536165-31664080-876a-11eb-8b2d-956bb16d4c73.png">
 
 Cursos:
+<img width="1440" alt="Captura de pantalla 2021-03-17 a las 21 46 25" src="https://user-images.githubusercontent.com/43385877/111536210-3fb45c80-876a-11eb-93e3-46d3002e5716.png">
 
-<img width="1440" alt="curso_bd" src="https://user-images.githubusercontent.com/43385877/110631634-05195580-81a7-11eb-8046-545017f90bf4.png">
 
-
+La relación cliente-cursos refleja las ID de los clientes apuntados a los diferentes cursos:
+<img width="1440" alt="Captura de pantalla 2021-03-17 a las 21 46 50" src="https://user-images.githubusercontent.com/43385877/111536309-61154880-876a-11eb-8c75-eef1ab566574.png">
 
 
 
