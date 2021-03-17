@@ -97,7 +97,6 @@ public class WebController {
 			cursosRepository.save(matematicas);
 			usuario.añadirCurso(matematicas);
 			clienteRepository.saveAndFlush(usuario);
-			
 			model.addAttribute("añadirCursoM", true);			
 		}	
 		return "tipo-cursoM";
@@ -114,7 +113,6 @@ public class WebController {
 			cursosRepository.save(informatica);
 			usuario.añadirCurso(informatica);
 			clienteRepository.saveAndFlush(usuario);
-			
 			model.addAttribute("añadirCursoI", true);
 			
 		}	
@@ -132,7 +130,6 @@ public class WebController {
 			cursosRepository.save(ingles);
 			usuario.añadirCurso(ingles);
 			clienteRepository.saveAndFlush(usuario);
-			
 			model.addAttribute("añadirCursoE", true);			
 		}			
 		return "tipo-cursoE";		
