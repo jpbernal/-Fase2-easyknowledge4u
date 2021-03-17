@@ -46,7 +46,9 @@ Diagrama de navegación:
 
 Diagrama UML:
 
-![Diagrama UML](https://user-images.githubusercontent.com/43385877/110636624-c4243f80-81ac-11eb-8a4e-68d51aad64ea.png)
+<img width="811" alt="Captura de pantalla 2021-03-17 a las 22 42 14" src="https://user-images.githubusercontent.com/43385877/111542616-4050f100-8772-11eb-9792-d601f1afd824.png">
+
+
 
 
 Diagrama E/R:
