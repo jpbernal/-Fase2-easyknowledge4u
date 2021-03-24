@@ -12,17 +12,15 @@ La aplicación tiene 2 partes:
 
 Una **parte pública**, que permite navegar por la web, navegar por los distintos servicios, inicio de sesión y contacto.
 
-Una **parte privada**, que permite la gestión de la cuenta de usuario y realizar los pagos de los cursos así como ver en cuales esta inscrito.
+Una **parte privada**, que permite la gestión de la cuenta de usuario y crear nuevos cursos así como ver en cuales esta inscrito los diferentes usuarios.
 
 ## Entidades
 
 **Cliente**: usuario que accede a nuestra página web, pueden ser alumnos, docentes y administradores de la web.
 
-**Cursos**: los distintos cursos ofertados en nuestra web, pueden ser de educación primaria, secundaría, bachillerato o universitarios.
+**Cursos**: los distintos cursos ofertados en nuestra web, pueden ser de matemáticas, inglés o informática.
 
-**Inscripción**: contiene la pantalla con los campos a rellenar con los datos del usuario para la inscripción y el coste del curso.
-
-**Contacto**: contiene una ubicación de la academia con google maps, un email de contacto, número de contacto además de un buzón de mensajes vía e-mail.
+**Contacto**: una forma de recibir feedback mediante un email de contacto, número de contacto además de un buzón de mensajes/dudas vía e-mail.
 
 ## Funcionamiento del servicio interno
 
@@ -82,7 +80,6 @@ Si los creedenciales introducidos son correctos, nos dirigirá a esta pantalla:
 
 <img width="1440" alt="inicio sesion correcto" src="https://user-images.githubusercontent.com/43385877/110631155-83292c80-81a6-11eb-9684-1fb21d91e02d.png">
 
-
 En el index podremos navegar a diferentes pestañas, entre ellas, los cursos disponibles y una pestaña de contacto.
 
 Cursos:
@@ -97,16 +94,13 @@ Podremos enviar un mensaje a modo feedback o consulta que queramos realizar, int
 
 <img width="1440" alt="Captura de pantalla 2021-03-17 a las 21 39 45" src="https://user-images.githubusercontent.com/43385877/111535375-51e1cb00-8769-11eb-90be-2ce817a3adf1.png">
 
-
 La aplicación utiliza una base de datos embedida H2, la cual podemos acceder vía web:
 
 <img width="1440" alt="h2-console" src="https://user-images.githubusercontent.com/43385877/110631391-c08dba00-81a6-11eb-8238-d66d3e65f269.png">
 
-
 Una vez accedemos nos encontramos con esta pantalla, en la que vemos las distintas entidades y sus relaciones
 
 <img width="1440" alt="Captura de pantalla 2021-03-17 a las 21 42 21" src="https://user-images.githubusercontent.com/43385877/111535760-c0bf2400-8769-11eb-8184-2050cf24e119.png">
-
 
 Navegando por las entidades principales, tenemos cliente, curso e inscripción.
 
@@ -119,7 +113,6 @@ Contacto:
 
 Cursos:
 <img width="1440" alt="Captura de pantalla 2021-03-17 a las 21 46 25" src="https://user-images.githubusercontent.com/43385877/111536210-3fb45c80-876a-11eb-93e3-46d3002e5716.png">
-
 
 La relación cliente-cursos refleja las ID de los clientes apuntados a los diferentes cursos:
 <img width="1440" alt="Captura de pantalla 2021-03-17 a las 21 46 50" src="https://user-images.githubusercontent.com/43385877/111536309-61154880-876a-11eb-8c75-eef1ab566574.png">
