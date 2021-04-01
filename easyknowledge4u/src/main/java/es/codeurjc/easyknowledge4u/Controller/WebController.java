@@ -28,7 +28,10 @@ public class WebController {
     }
 	
 	@GetMapping("/index")
-	public String Index (Model model) {
+	public String Index (Model model, HttpServletRequest request) {
+		
+		 CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
+		 model.addAttribute("token", token.getToken());
 		
 		return "index";
 		
@@ -149,8 +152,7 @@ public class WebController {
 		
 		return "contacto-enviado";	
 	}
-	
-	//prueba
+
 }
 
 
