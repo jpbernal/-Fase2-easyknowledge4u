@@ -1,19 +1,20 @@
 package es.codeurjc.easyknowledge4u.Controller;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+
 @Configuration
+@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
-	
-	
 	@Override
-	protected void configure (HttpSecurity http) throws Exception{
+	protected void configure(HttpSecurity http) throws Exception { 
 		
 		//public
-		
 		 http.authorizeRequests().antMatchers("/index").permitAll();
 		 http.authorizeRequests().antMatchers("/login").permitAll();
 		 http.authorizeRequests().antMatchers("/register").permitAll();
@@ -39,8 +40,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 http.logout().logoutSuccessUrl("/");
 		 
 		//CSRF
+		http.csrf().disable();
+	
+	}
 		
-	http.csrf().disable();
 	
 	@Override
 	 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -51,5 +54,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	
 	}
-
 }
