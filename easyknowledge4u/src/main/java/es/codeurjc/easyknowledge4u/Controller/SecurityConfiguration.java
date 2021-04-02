@@ -23,17 +23,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 http.authorizeRequests().antMatchers("/registro").permitAll();
 		 http.authorizeRequests().antMatchers("/cursos").permitAll();
 		 http.authorizeRequests().antMatchers("/añadirCursoM").permitAll();
+		 http.authorizeRequests().antMatchers("/añadirCursoI").permitAll();
+		 http.authorizeRequests().antMatchers("/añadirCursoE").permitAll();
 		 http.authorizeRequests().antMatchers("/guardarContacto").permitAll();
 		 
 		//private
 		 
 		 http.authorizeRequests().anyRequest().authenticated();
+		// http.authorizeRequests().antMatchers("/crearcurso").hasAnyRole("ADMIN");
 				
 		// Login form
 		 http.formLogin().loginPage("/login");
 		 http.formLogin().usernameParameter("username");
 		 http.formLogin().passwordParameter("password");
-		 http.formLogin().defaultSuccessUrl("/home");
+		 http.formLogin().defaultSuccessUrl("/index");
 		 http.formLogin().failureUrl("/loginerror");
 		 // Logout
 		 http.logout().logoutUrl("/logout");
@@ -54,8 +57,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	// ADMIN
 		
 		auth.inMemoryAuthentication().withUser("admin").password("adminpass").roles("USER", "ADMIN");
-
-	
 	
 	}
 }

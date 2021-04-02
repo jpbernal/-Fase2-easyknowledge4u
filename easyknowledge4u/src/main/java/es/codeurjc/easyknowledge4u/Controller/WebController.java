@@ -2,7 +2,6 @@ package es.codeurjc.easyknowledge4u.Controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +24,8 @@ public class WebController {
 	@Autowired
 	private CursoRepository cursosRepository;
 	
+	
+	
 	@PostConstruct
     public void init() {
     }
@@ -33,13 +34,25 @@ public class WebController {
 	public String Index (Model model) {
 	
 		return "index";
+	}
+	
+	@GetMapping("/home")
+	public String Admin (Model model, HttpServletRequest request) {
 		
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+	
+		return "admin";
 	}
 
 	@GetMapping("/login")
 	public String Login (Model model) {
 		
 		return "login";
+	}
+	@GetMapping("/admin")
+	public String Home (Model model) {
+		
+		return "admin";
 	}
 	
 	@GetMapping("/register")
@@ -79,7 +92,7 @@ public class WebController {
 		Cliente prueba = new Cliente(Nombre,Email,Contraseña, null, null);
 		clienteRepository.save(prueba);
 		
-		return "registro";
+		return "registro"; // registrado correctamente
 	}	
 	
 	@GetMapping("/cursos")
