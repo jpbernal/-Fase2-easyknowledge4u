@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -27,9 +28,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 http.authorizeRequests().antMatchers("/añadirCursoE").permitAll();
 		 http.authorizeRequests().antMatchers("/guardarContacto").permitAll();
 		 
-		//private
-		 
+		//private		 
 		 http.authorizeRequests().anyRequest().authenticated();
+		 
 		// http.authorizeRequests().antMatchers("/crearcurso").hasAnyRole("ADMIN");
 				
 		// Login form
@@ -45,8 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		//CSRF
 		http.csrf().disable();
 	
-	}
-		
+	}		
 	
 	@Override
 	 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -56,7 +56,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 	// ADMIN
 		
-		auth.inMemoryAuthentication().withUser("admin").password("adminpass").roles("USER", "ADMIN");
-	
+		auth.inMemoryAuthentication().withUser("admin").password("adminpass").roles("USER", "ADMIN");				
 	}
+	
+	
+	 //ver diapositiva 49
+	
 }
