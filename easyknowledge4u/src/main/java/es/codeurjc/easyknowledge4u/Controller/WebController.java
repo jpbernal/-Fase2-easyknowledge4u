@@ -36,7 +36,7 @@ public class WebController {
 		return "index";
 	}
 	
-	@GetMapping("/home")
+	@GetMapping("admin")
 	public String Admin (Model model, HttpServletRequest request) {
 		
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
@@ -49,10 +49,10 @@ public class WebController {
 		
 		return "login";
 	}
-	@GetMapping("/admin")
+	@GetMapping("/home")
 	public String Home (Model model) {
 		
-		return "admin";
+		return "home";
 	}
 	
 	@GetMapping("/register")
