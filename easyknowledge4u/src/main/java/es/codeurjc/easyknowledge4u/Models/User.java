@@ -1,6 +1,5 @@
 package es.codeurjc.easyknowledge4u.Models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -12,47 +11,58 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	private String nombre;
-	private String passwordHash;
+	private long id;
+	private String name;
+	private String idUsuario;
+	private String password;
 	
-@ElementCollection(fetch = FetchType.EAGER)
-private List<String> roles;
-
-
-
-public User() {}
-public User(String nombre, String passwordHash, String roles) {
-	super();
-	this.roles = new ArrayList<String>();
-	this.nombre = nombre;
-	this.passwordHash = passwordHash;
-
-}
-
-public String getNombre() {
-	return nombre;
-}
-
-public void setNombre(String nombre) {
-	this.nombre = nombre;
-}
-
-public String getPasswordHash() {
-	return passwordHash;
-}
-
-public void setPasswordHash(String passwordHash) {
-	this.passwordHash = passwordHash;
-}
-
-public void añadirRol(String roles) {
+	@ElementCollection(fetch = FetchType.EAGER)
+	 private List<String> roles;
 	
-	this.roles.add(roles);
+	public User() {}
 	
-}
+	public User(String idUsuario, String password, String role1) {
+		this.idUsuario=idUsuario;
+		this.password=password;
+	}
+	
+	public User(String idUsuario, String password, String role1, String role2) {
+		this.idUsuario=idUsuario;
+		this.password=password;
+	}
+	
+	public String getIdUsuario() {
+		return idUsuario;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public List<String> getRoles() {
+		return roles;
+	}
 
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+
+	public void setIdUsuario(String idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

@@ -6,6 +6,7 @@ import es.codeurjc.easyknowledge4u.Models.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 	
-	User findByNombre (String nombre);
+	User findByName(String name);
+	User findByIdUsuario (String IdUsuario);
 
 }

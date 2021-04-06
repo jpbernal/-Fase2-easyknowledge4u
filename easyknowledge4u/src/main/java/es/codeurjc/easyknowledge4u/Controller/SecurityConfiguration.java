@@ -1,16 +1,22 @@
 package es.codeurjc.easyknowledge4u.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+//import es.codeurjc.easyknowledge4u.Repositories.UserRepositoryAuthenticationProvider;
+
 
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
+	@Autowired
+	//public UserRepositoryAuthenticationProvider authenticationProvider;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception { 
@@ -61,6 +67,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	// ADMIN
 		
 		auth.inMemoryAuthentication().withUser("admin").password("adminpass").roles("ADMIN");
+		
+	//auth.authenticationProvider(authenticationProvider);
 		
 	}
 	
