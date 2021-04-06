@@ -27,16 +27,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 http.authorizeRequests().antMatchers("/añadirCursoI").permitAll();
 		 http.authorizeRequests().antMatchers("/añadirCursoE").permitAll();
 		 http.authorizeRequests().antMatchers("/guardarContacto").permitAll();
-		 http.authorizeRequests().antMatchers("/admin").permitAll();
+		 http.authorizeRequests().antMatchers("/contacto-enviado").permitAll();
+		 http.authorizeRequests().antMatchers("/inicio-sesion").permitAll();
+		 http.authorizeRequests().antMatchers("/home").permitAll();
+		 http.authorizeRequests().antMatchers("/admin").permitAll(); // revisar
 		 
 		//private		 
 		 http.authorizeRequests().anyRequest().authenticated();
 		 
-		// http.authorizeRequests().antMatchers("/crearcurso").hasAnyRole("ADMIN");
+		 //http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
 				
 		// Login form
 		 http.formLogin().loginPage("/login");
-		 http.formLogin().usernameParameter("username");
+		 http.formLogin().usernameParameter("correo");
 		 http.formLogin().passwordParameter("password");
 		 http.formLogin().defaultSuccessUrl("/index");
 		 http.formLogin().failureUrl("/loginerror");
@@ -57,10 +60,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 	// ADMIN
 		
-		auth.inMemoryAuthentication().withUser("admin").password("adminpass").roles("USER", "ADMIN");				
+		auth.inMemoryAuthentication().withUser("admin").password("adminpass").roles("USER", "ADMIN");
+		
 	}
 	
 	
-	 //ver diapositiva 49
+	
 	
 }

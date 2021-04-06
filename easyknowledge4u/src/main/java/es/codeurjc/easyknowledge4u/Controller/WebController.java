@@ -36,7 +36,7 @@ public class WebController {
 		return "index";
 	}
 	
-	@GetMapping("admin")
+	@GetMapping("/admin")
 	public String Admin (Model model, HttpServletRequest request) {
 		
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
