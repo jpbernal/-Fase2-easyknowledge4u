@@ -36,7 +36,7 @@ public class WebController {
 		return "index";
 	}
 	
-	@GetMapping("/admin")
+	@GetMapping("/admin") //acceso credenciales
 	public String Admin (Model model, HttpServletRequest request) {
 		
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
@@ -53,6 +53,16 @@ public class WebController {
 	public String Home (Model model) {
 		
 		return "home";
+	}
+	
+	@GetMapping("/adminPanel") //check credenciales
+	public String AdminPanel (Model model, 
+	@RequestParam String credenciales,
+	@RequestParam String password) {
+				
+				//comprobar credenciales admin) {
+		
+		return "adminPanel";
 	}
 	
 	@GetMapping("/register")
