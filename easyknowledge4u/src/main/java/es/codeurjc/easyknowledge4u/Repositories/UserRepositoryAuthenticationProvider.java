@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import es.codeurjc.easyknowledge4u.Models.User;
+import es.codeurjc.easyknowledge4u.Models.UserComponent;
 
 @Component
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider {
@@ -23,8 +24,8 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 	@Autowired
 	private UserRepository userRepository;
 
-	//@Autowired
-	//private UserComponent userComponent;
+	@Autowired
+	private UserComponent userComponent;
 
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -35,15 +36,15 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 		User user = userRepository.findByName(username);
 
 		if (user == null) {
-			throw new BadCredentialsException("User not found");
+			throw new BadCredentialsException("Usuario no encontrado");
 		}
 
 		if (!new BCryptPasswordEncoder().matches(password, user.getPassword())) {
 
-			throw new BadCredentialsException("Wrong password");
+			throw new BadCredentialsException("Contraseña erronea");
 		} else {
 
-		//	userComponent.setLoggedUser(user);
+		userComponent.setLoggedUser(user);
 
 			List<GrantedAuthority> roles = new ArrayList<>();
 			for (String role : user.getRoles()) {
