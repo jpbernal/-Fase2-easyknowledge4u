@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-//import es.codeurjc.easyknowledge4u.Repositories.UserRepositoryAuthenticationProvider;
+import es.codeurjc.easyknowledge4u.Repositories.UserRepositoryAuthenticationProvider;
 
 
 
@@ -16,7 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	//public UserRepositoryAuthenticationProvider authenticationProvider;
+	public UserRepositoryAuthenticationProvider authenticationProvider;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception { 
@@ -35,13 +35,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 http.authorizeRequests().antMatchers("/guardarContacto").permitAll();
 		 http.authorizeRequests().antMatchers("/contacto-enviado").permitAll();
 		 http.authorizeRequests().antMatchers("/inicio-sesion").permitAll();
-		 http.authorizeRequests().antMatchers("/home").permitAll();
-		 http.authorizeRequests().antMatchers("/admin").permitAll(); // revisar
+		 
 		 
 		//private		 
-		 http.authorizeRequests().anyRequest().authenticated();
+		 http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
+		 http.authorizeRequests().antMatchers("/home").hasAnyRole("USER");
 		 
-		 //http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
+		 http.authorizeRequests().anyRequest().authenticated();
 				
 		// Login form
 		 http.formLogin().loginPage("/login");
@@ -68,7 +68,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		auth.inMemoryAuthentication().withUser("admin").password("adminpass").roles("ADMIN");
 		
-	//auth.authenticationProvider(authenticationProvider);
+		auth.authenticationProvider(authenticationProvider);
 		
 	}
 	
