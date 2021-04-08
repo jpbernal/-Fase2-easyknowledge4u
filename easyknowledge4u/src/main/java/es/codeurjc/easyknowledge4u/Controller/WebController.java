@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -29,6 +30,24 @@ public class WebController {
 	@PostConstruct
     public void init() {
     }
+	
+	@Autowired
+	private UserComponent userComponent;
+
+	@ModelAttribute
+	public void addAttributes(Model model) {
+		
+		boolean logged = userComponent.getLoggedUser() != null;
+		
+		model.addAttribute("logged", logged);
+		model.addAttribute("notLogged", !logged);
+		
+		if(logged){
+			model.addAttribute("userName",userComponent.getLoggedUser().getName());
+			model.addAttribute("admin", userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
+		}
+	}
+	
 	
 	@GetMapping("/index")
 	public String Index (Model model) {
