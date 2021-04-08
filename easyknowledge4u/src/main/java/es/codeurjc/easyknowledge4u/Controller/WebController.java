@@ -24,6 +24,9 @@ public class WebController {
 	private ContactoRepository contactoRepository;
 	@Autowired
 	private CursoRepository cursosRepository;
+	@SuppressWarnings("unused")
+	@Autowired
+	private UserRepository userRepository;
 	
 	
 	
@@ -77,10 +80,10 @@ public class WebController {
 	
 	@GetMapping("/adminPanel") //check credenciales
 	public String AdminPanel (Model model, 
-	@RequestParam String credenciales,
+	@RequestParam String username,
 	@RequestParam String password) {
 				
-				//comprobar credenciales admin) 
+		//wip
 		
 		return "adminPanel";
 	}

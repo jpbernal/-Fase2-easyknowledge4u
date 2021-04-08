@@ -32,7 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 http.authorizeRequests().antMatchers("/contacto-enviado").permitAll();
 		 http.authorizeRequests().antMatchers("/inicio-sesion").permitAll();
 		 
-		 
+	/*	 
 		//private		 
 		 http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
 		 http.authorizeRequests().antMatchers("/home").hasAnyRole("USER");
@@ -43,9 +43,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 
 		 http.authorizeRequests().anyRequest().authenticated();
 				
+				*/
 		// Login form
 		 http.formLogin().loginPage("/login");
-		 http.formLogin().usernameParameter("correo");
+		 http.formLogin().usernameParameter("username");
 		 http.formLogin().passwordParameter("password");
 		 http.formLogin().defaultSuccessUrl("/home");
 		 http.formLogin().failureUrl("/loginerror");
