@@ -12,7 +12,7 @@ La aplicación tiene 2 partes:
 
 Una **parte pública**, que permite navegar por la web, navegar por los distintos servicios, inicio de sesión y contacto.
 
-Una **parte privada**, que permite la gestión de la cuenta de usuario y crear nuevos cursos así como ver en cuales esta inscrito los diferentes usuarios.
+Una **parte privada**, que permite la gestión de los diferentes cursos, crear, editar o borrar cursos.
 
 ## Entidades
 
