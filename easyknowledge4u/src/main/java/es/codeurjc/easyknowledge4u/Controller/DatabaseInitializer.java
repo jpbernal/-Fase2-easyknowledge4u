@@ -23,7 +23,10 @@ public class DatabaseInitializer {
 		// Sample books
 
 		cursosRepository.save(new Cursos (null, 230, "matematicas")); // curso ejemplo matematicas
-				
+		cursosRepository.save(new Cursos (null, 200, "Ingles")); // curso ingles
+		cursosRepository.save(new Cursos (null, 180, "informatica")); //curso informatica
+		
+		
 		// Sample users
 
 		userRepository.save(new User("user", "pass", "ROLE_USER"));

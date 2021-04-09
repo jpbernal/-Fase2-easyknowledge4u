@@ -32,9 +32,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 http.authorizeRequests().antMatchers("/contacto-enviado").permitAll();
 		 http.authorizeRequests().antMatchers("/inicio-sesion").permitAll();
 		 
-	/*	 
+	 
 		//private		 
 		 http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");
+		 http.authorizeRequests().antMatchers("/adminPanel").hasAnyRole("ADMIN");
 		 http.authorizeRequests().antMatchers("/home").hasAnyRole("USER");
 		 http.authorizeRequests().antMatchers("/cursos").hasAnyRole("USER");
 		 http.authorizeRequests().antMatchers("/añadirCursoM").hasAnyRole("USER");
@@ -43,13 +44,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 
 		 http.authorizeRequests().anyRequest().authenticated();
 				
-				*/
+				
 		// Login form
 		 http.formLogin().loginPage("/login");
 		 http.formLogin().usernameParameter("username");
 		 http.formLogin().passwordParameter("password");
 		 http.formLogin().defaultSuccessUrl("/home");
 		 http.formLogin().failureUrl("/loginerror");
+		 
 		 // Logout
 		 http.logout().logoutUrl("/logout");
 		 http.logout().logoutSuccessUrl("/index");
