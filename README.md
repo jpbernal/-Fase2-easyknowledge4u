@@ -12,13 +12,13 @@ La aplicación tiene 2 partes:
 
 Una **parte pública**, que permite navegar por la web, navegar por los distintos servicios, inicio de sesión y contacto.
 
-Una **parte privada**, que permite la gestión de la cuenta de usuario y crear nuevos cursos así como ver en cuales esta inscrito los diferentes usuarios.
+Una **parte privada**, que permite la gestión de los diferentes cursos, crear, editar o borrar cursos.
 
 ## Entidades
 
 **Cliente**: usuario que accede a nuestra página web, pueden ser alumnos, docentes y administradores de la web.
 
-**Cursos**: los distintos cursos ofertados en nuestra web, pueden ser de matemáticas, inglés o informática.
+**Cursos**: los distintos cursos ofertados en nuestra web, pueden ser de matemáticas, inglés o informática inicialmente, se pueden tanto crear nuevos, editar los existentes o eliminarlos.
 
 **Contacto**: una forma de recibir feedback mediante un email de contacto, número de contacto además de un buzón de mensajes/dudas vía e-mail.
 
