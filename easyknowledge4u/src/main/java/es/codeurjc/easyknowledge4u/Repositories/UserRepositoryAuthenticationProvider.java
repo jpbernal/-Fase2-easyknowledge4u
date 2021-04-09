@@ -15,7 +15,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import es.codeurjc.easyknowledge4u.Models.User;
+import es.codeurjc.easyknowledge4u.Models.*;
 import es.codeurjc.easyknowledge4u.Models.UserComponent;
 
 @Component
@@ -39,7 +39,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 			throw new BadCredentialsException("Usuario no encontrado");
 		}
 
-		if (!new BCryptPasswordEncoder().matches(password, user.getPassword())) {
+		if (!new BCryptPasswordEncoder().matches(password, user.getPasswordHash())) {
 
 			throw new BadCredentialsException("Contraseña erronea");
 		} else {

@@ -1,5 +1,8 @@
+
 package es.codeurjc.easyknowledge4u.Models;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -9,53 +12,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
+
 	private String name;
-	private String idUsuario;
-	private String password;
-	
+
+	@JsonIgnore
+	private String passwordHash;
+
 	@ElementCollection(fetch = FetchType.EAGER)
-	 private List<String> roles;
-	
-	public User() {}
-	
-	public User(String idUsuario, String password, String role1) {
-		this.idUsuario=idUsuario;
-		this.password=password;
-	}
-	
-	public User(String idUsuario, String password, String role1, String role2) {
-		this.idUsuario=idUsuario;
-		this.password=password;
-	}
-	
-	public String getIdUsuario() {
-		return idUsuario;
-	}
-	
-	public String getPassword() {
-		return password;
-	}
-	
-	public List<String> getRoles() {
-		return roles;
+	private List<String> roles;
+
+	public User() {
 	}
 
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
-	}
-
-	public void setIdUsuario(String idUsuario) {
-		this.idUsuario = idUsuario;
-	}
-	
-	public void setPassword(String password) {
-		this.password = password;
+	public User(String name, String password, String... roles) {
+		this.name = name;
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
 	public String getName() {
@@ -65,4 +47,21 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getPasswordHash() {
+		return passwordHash;
+	}
+
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
+	}
+
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+
 }

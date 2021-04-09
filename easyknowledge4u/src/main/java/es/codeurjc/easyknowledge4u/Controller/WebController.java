@@ -6,11 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 import es.codeurjc.easyknowledge4u.Models.*;
 import es.codeurjc.easyknowledge4u.Repositories.*;
@@ -18,21 +19,20 @@ import es.codeurjc.easyknowledge4u.Repositories.*;
 @Controller
 public class WebController {
 	
-	@Autowired
-	private ClienteRepository clienteRepository;
-	@Autowired
-	private ContactoRepository contactoRepository;
-	@Autowired
-	private CursoRepository cursosRepository;
 	@SuppressWarnings("unused")
 	@Autowired
 	private UserRepository userRepository;
+	@SuppressWarnings("unused")
+	@Autowired
+	private ContactoRepository contactoRepository;
+	@SuppressWarnings("unused")
+	@Autowired
+	private CursoRepository cursosRepository;
 	
 	
 	
-	@PostConstruct
-    public void init() {
-    }
+	@Autowired
+	private cursoService service;
 	
 	@Autowired
 	private UserComponent userComponent;
@@ -52,157 +52,112 @@ public class WebController {
 	}
 	
 	
-	@GetMapping("/index")
-	public String Index (Model model) {
-	
-		return "index";
-	}
-	
-	@GetMapping("/admin") //acceso credenciales
-	
-	public String Admin (Model model, HttpServletRequest request) {
-		
-		model.addAttribute("admin", request.isUserInRole("ADMIN"));
-	
-		return "admin";
-	}
+	@GetMapping("/")
+	public String mostrarCursos(Model model) {
 
-	@GetMapping("/login")
-	public String Login (Model model) {
-		
-		return "login";
-	}
-	@GetMapping("/home")
-	public String Home (Model model) {
-		
-		return "home";
-	}
-	
-	@GetMapping("/adminPanel") //check credenciales
-	public String AdminPanel (Model model, 
-	@RequestParam String username,
-	@RequestParam String password) {
-				
-		//wip
-		
-		return "adminPanel";
-	}
-	
-	@GetMapping("/register")
-	public String Register (Model model) {
-		
-		return "register";
-	}
-	
-	@RequestMapping("/comprobarLogin")
-	public String comprobarLogin(Model model,
-	@RequestParam String correo,
-	@RequestParam String password) {
-		boolean check = false;
-		Cliente prueba = clienteRepository.findByCorreo(correo);
-		if(prueba != null && prueba.getPassword().equals(password)) check = true;
-		model.addAttribute("comprobarLogin",check);
-		model.addAttribute("Correo", correo);
-		
-		return "inicio-sesion";
-	}
-		
-	@GetMapping("/contacto")
-	public String Contacto (Model model) {
-		
-		return "contacto";
-	}
-	
-	@RequestMapping("/registro")
-	public String Registro (Model model, @RequestParam String Nombre, 
-	@RequestParam String Email, 
-	@RequestParam String Contraseña) {
-		
-		model.addAttribute("Nombre", Nombre);
-		model.addAttribute("Email", Email);
-		model.addAttribute("Contraseña", Contraseña);
-		
-		Cliente prueba = new Cliente(Nombre,Email,Contraseña, null, null);
-		clienteRepository.save(prueba);
-		
-		return "registro"; // registrado correctamente
-	}	
-	
-	@GetMapping("/cursos")
-	public String Cursos (Model model) {
+		model.addAttribute("cursos", service.findAll());
 		
 		return "cursos";
 	}
+	
+	
+	@GetMapping("/cursos/{id}")
+	public String mostrarCurso(Model model, @PathVariable long id) {
 		
-	@RequestMapping("/añadirCursoM")
-	public String añadirCursoM(Model model, @RequestParam String Nombre) {
+		Optional <Curso> op = service.findOne(id);
+		if(op.isPresent()) {
+			Curso curso = op.get();
+			model.addAttribute("curso", curso);
+			return "curso";
+		}else {
+			return "cursos";
+		}
 		
-		Cliente usuario = clienteRepository.findByNombre(Nombre);
-		
-		if(usuario != null) {
-			
-			Cursos matematicas = new Cursos (usuario, 230, "matematicas");
-			cursosRepository.save(matematicas);
-			usuario.añadirCurso(matematicas);
-			clienteRepository.saveAndFlush(usuario);
-			model.addAttribute("añadirCursoM", true);			
-		}	
-		return "tipo-cursoM";
 	}
 	
-	@RequestMapping("/añadirCursoI")
-	public String añadirCursoI(Model model, @RequestParam String Nombre) {
+	@GetMapping("/removecurso/{id}")
+	public String removeCurso(Model model, @PathVariable long id) {
 		
-		Cliente usuario = clienteRepository.findByNombre(Nombre);
+		Optional<Curso> op = service.findOne(id);
+		if(op.isPresent()) {
+			Curso curso = op.get();
+			service.delete(id);
+			model.addAttribute("curso", curso);
+			return "removedcurso";
+		}else {
+			return "removedcurso";
+		}
 		
-		if(usuario != null) {
-			
-			Cursos informatica = new Cursos (usuario, 230, "informatica");
-			cursosRepository.save(informatica);
-			usuario.añadirCurso(informatica);
-			clienteRepository.saveAndFlush(usuario);
-			model.addAttribute("añadirCursoI", true);
-			
-		}	
-		return "tipo-cursoI";		
 	}
 	
-	@RequestMapping("/añadirCursoE")
-	public String añadirCursoE(Model model, @RequestParam String Nombre) {
+	@GetMapping("/newcurso")
+	public String newCurso(Model model) {
 		
-		Cliente usuario = clienteRepository.findByNombre(Nombre);
-		
-		if(usuario != null) {
-			
-			Cursos ingles = new Cursos (usuario, 230, "ingles");
-			cursosRepository.save(ingles);
-			usuario.añadirCurso(ingles);
-			clienteRepository.saveAndFlush(usuario);
-			model.addAttribute("añadirCursoE", true);			
-		}			
-		return "tipo-cursoE";		
+		return "newCursoPage";
 	}
 	
-	@RequestMapping("/guardarContacto")
-	public String guardarContacto (Model model, @RequestParam String Nombre, 
-	@RequestParam String Email, 
-	@RequestParam String Texto) {
+	@PostMapping("/newcurso")
+	public String newCursoProcess(Curso curso) {
 		
-		model.addAttribute("Nombre", Nombre);
-		model.addAttribute("Email", Email);
-		model.addAttribute("Texto", Texto);
+		
+		service.save(curso);
+		
+		return "cursoCreado";
+	}
+	@GetMapping("/editcurso/{id}")
+	public String editCurso(Model model, @PathVariable long id) {
+		
+		Optional<Curso> op = service.findOne(id);
+		if(op.isPresent()) {
+			Curso curso = op.get();
+			model.addAttribute("curso", curso);
+			return "editCursoPage";
+		}else {
+			return "cursos";
+		}
+		
+	}
 	
-		Contacto contactoprueba = new Contacto (Nombre, Email, Texto);
-		contactoRepository.save(contactoprueba);
+	@PostMapping("/editcurso")
+	public String editCursoProcess(Curso curso) {
 		
-		return "contacto-enviado";	
+		
+		service.save(curso);
+		
+		return "cursoEditado";
+	}
+	
+	@RequestMapping("/login")
+	public String login(Model model) {
+
+		return "login";
 	}
 
 	@RequestMapping("/loginerror")
 	public String loginerror(Model model) {
 		return "loginerror";
 	}
+	
+	@RequestMapping("/contacto")
+	public String Contacto (Model model) {
+
+		return "contacto";
+	}
+
+	@RequestMapping("/guardarContacto")
+	public String guardarContacto (Model model, @RequestParam String nombre, 
+		    @RequestParam String correo, 
+		    @RequestParam String texto) {
+
+		        model.addAttribute("Nombre", nombre);
+		        model.addAttribute("Email", correo);
+		        model.addAttribute("Texto", texto);
+
+		        Contacto contactoprueba = new Contacto (nombre, correo, texto);
+		        contactoRepository.save(contactoprueba);
+		
+		return "contacto-envidado";
+	}
 
 }
-
 

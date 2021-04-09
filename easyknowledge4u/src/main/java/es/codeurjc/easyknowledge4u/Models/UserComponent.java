@@ -2,7 +2,7 @@ package es.codeurjc.easyknowledge4u.Models;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
-import es.codeurjc.easyknowledge4u.Models.User;
+import es.codeurjc.easyknowledge4u.Models.*;
 
 @SuppressWarnings("unused")
 @Component

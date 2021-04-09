@@ -1,4 +1,4 @@
-package es.codeurjc.easyknowledge4u.Controller;
+package es.codeurjc.easyknowledge4u;
 
 import javax.annotation.PostConstruct;
 
@@ -12,7 +12,7 @@ import es.codeurjc.easyknowledge4u.Repositories.*;
 public class DatabaseInitializer {
 
 	@Autowired
-	private CursoRepository cursosRepository;
+	private CursoRepository cursoRepository;
 
 	@Autowired
 	private UserRepository userRepository;
@@ -22,9 +22,9 @@ public class DatabaseInitializer {
 
 		// Sample books
 
-		cursosRepository.save(new Cursos (null, 230, "matematicas")); // curso ejemplo matematicas
-		cursosRepository.save(new Cursos (null, 200, "Ingles")); // curso ingles
-		cursosRepository.save(new Cursos (null, 180, "informatica")); //curso informatica
+		cursoRepository.save(new Curso ("Matemáticas", 230)); // curso ejemplo matematicas
+		cursoRepository.save(new Curso ("Inglés", 200)); // curso ingles
+		cursoRepository.save(new Curso ("Informática", 190)); //curso informatica
 		
 		
 		// Sample users
