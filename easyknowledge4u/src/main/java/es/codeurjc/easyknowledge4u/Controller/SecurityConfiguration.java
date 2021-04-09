@@ -14,16 +14,19 @@ import es.codeurjc.easyknowledge4u.Repositories.UserRepositoryAuthenticationProv
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
 	public UserRepositoryAuthenticationProvider authenticationProvider;
 	
+	  
 	@Override
 	protected void configure(HttpSecurity http) throws Exception { 
 		
 		//public
 		 http.authorizeRequests().antMatchers("/index").permitAll();
 		 http.authorizeRequests().antMatchers("/login").permitAll();
+	     http.authorizeRequests().antMatchers("/loginerror").permitAll();
+	     http.authorizeRequests().antMatchers("/logout").permitAll();
 		 http.authorizeRequests().antMatchers("/register").permitAll();
 		 http.authorizeRequests().antMatchers("/contacto").permitAll();
 		 http.authorizeRequests().antMatchers("/comprobarLogin").permitAll();
@@ -41,25 +44,28 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 http.authorizeRequests().antMatchers("/añadirCursoM").hasAnyRole("USER");
 		 http.authorizeRequests().antMatchers("/añadirCursoI").hasAnyRole("USER");
 		 http.authorizeRequests().antMatchers("/añadirCursoE").hasAnyRole("USER");
-		 
 		 http.authorizeRequests().anyRequest().authenticated();
-				
-				
-		// Login form
+		
+		
+		 
+			// Login form
 		 http.formLogin().loginPage("/login");
 		 http.formLogin().usernameParameter("username");
 		 http.formLogin().passwordParameter("password");
-		 http.formLogin().defaultSuccessUrl("/home");
+		 http.formLogin().defaultSuccessUrl("/index");
 		 http.formLogin().failureUrl("/loginerror");
-		 
+				
+		
+	
 		 // Logout
 		 http.logout().logoutUrl("/logout");
 		 http.logout().logoutSuccessUrl("/index");
 		 
 		//CSRF
-		//http.csrf().disable();
+		//  http.csrf().disable();
 	
-	}		
+	}	
+		
 	
 	@Override
 	 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -75,7 +81,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 	}
 	
-	
+
 	
 	
 }

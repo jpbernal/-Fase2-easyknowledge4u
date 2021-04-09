@@ -198,6 +198,11 @@ public class WebController {
 		return "contacto-enviado";	
 	}
 
+	@RequestMapping("/loginerror")
+	public String loginerror(Model model) {
+		return "loginerror";
+	}
+
 }
 
 
