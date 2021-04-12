@@ -28,8 +28,6 @@ public class WebController {
 	@Autowired
 	private CursoRepository cursosRepository;
 	
-	
-	
 	@Autowired
 	private cursoService service;
 	
@@ -84,7 +82,7 @@ public class WebController {
 			model.addAttribute("curso", curso);
 			return "removedcurso";
 		}else {
-			return "cursos";
+			return "curso";
 		}
 		
 	}
