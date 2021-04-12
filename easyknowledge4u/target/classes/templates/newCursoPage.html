@@ -1,0 +1,20 @@
+{{>header}}
+
+  <form action="/newcurso" method="post">
+  <h2>Nuevo curso</h2>
+  <div>
+    <label>Asignatura: </label>
+    <input name="title" placeholder="Asignatura"/>
+  </div>
+  <div>
+    <label>Precio: </label>
+    <textarea name="precio" placeholder="precio"></textarea>
+  </div>
+  <input type="hidden" name="_csrf" value="{{token}}"/>
+  <p>
+    <button onclick="location.href='/'; return false;">Cancelar</button>
+    <input type="submit" value="Añadir"/>
+  </p>
+  </form>
+  
+{{>footer}}
