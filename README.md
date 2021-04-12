@@ -118,6 +118,39 @@ La relación cliente-cursos refleja las ID de los clientes apuntados a los difer
 <img width="1440" alt="Captura de pantalla 2021-03-17 a las 21 46 50" src="https://user-images.githubusercontent.com/43385877/111536309-61154880-876a-11eb-8c75-eef1ab566574.png">
 
 
+-----------------------
+
+## Fase 3 
+
+-----------------------
+
+En esta fase se ha implementado Spring Security, controlando el acceso a diferentes paginas de la web en función a los permisos del usuario.
+
+Diagrama de navegación:
+
+![Diagrama de navegación](https://user-images.githubusercontent.com/43385877/110509987-02652480-8103-11eb-9131-45df49ed904c.png)
+
+A continuación se muestran varias capturas de la aplicación durante esta Fase 3 del proyecto:
+
+
+
+Pagina principal con opción de inicio de sesión arriba a la derecha:
+![1](https://user-images.githubusercontent.com/43385877/114379064-a752a180-9b88-11eb-9ee6-e8f2acace541.PNG)
+
+Podremos navegar por los diferentes cursos ofertados y consultar sus precios sin necesidad de estar loggeados en la web: 
+
+![2](https://user-images.githubusercontent.com/43385877/114379826-95bdc980-9b89-11eb-818e-cf7628cb5abc.PNG)
+
+Se han definido 2 tipos de usuarios: Administrador y usuario.
+
+Si iniciamos sesion como administrador con las credenciales correctas, podremos: Crear, editar y borrar cursos:
+![3](https://user-images.githubusercontent.com/43385877/114379936-c00f8700-9b89-11eb-9967-dcfbeba5609f.PNG)
+![4](https://user-images.githubusercontent.com/43385877/114379965-ca318580-9b89-11eb-91d3-03fff305e764.PNG)
+![5](https://user-images.githubusercontent.com/43385877/114379996-d584b100-9b89-11eb-95f8-73d9efe5161d.PNG)
+
+
+Si queremos desplegar nuesta apliación en una maquina virtual o en nuestro propio equipo es muy sencillo, solo deberemos clonar el repositorio y ejecutar el JAR File que encontraremos dentro del directorio target, para ello deberemos tener instalado y actualizado Java y Java jdk para el JAVA SE platform. Una vez ejecutado podremos ir a nuestro navegador y ir a la siguiente dirección: https://localhost:8443 y ya podremos utilizar la aplicación.
+
 
 
 
