@@ -26,7 +26,6 @@ Una **parte privada**, que permite la gestión de los diferentes cursos, crear, 
 
 Envío de correo al cliente con la confirmación del curso y la información del mismo
 
-Servicio de pago online
 
 ## Integrantes
 
