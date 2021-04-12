@@ -26,6 +26,8 @@ Una **parte privada**, que permite la gestión de los diferentes cursos, crear, 
 
 Envío de correo al cliente con la confirmación del curso y la información del mismo
 
+Permitir la creación, edición, borrado y gestión de los cursos ofertados.
+
 
 ## Integrantes
 
