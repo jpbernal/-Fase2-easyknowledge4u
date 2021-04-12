@@ -11,6 +11,7 @@
 	<groupId>es.codeurjc</groupId>
 	<artifactId>easyknowledge4u</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>easyknowledge4u</name>
 	<description>DAD_project</description>
 	<properties>
