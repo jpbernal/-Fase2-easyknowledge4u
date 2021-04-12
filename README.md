@@ -149,7 +149,7 @@ Si iniciamos sesion como administrador con las credenciales correctas, podremos:
 ![5](https://user-images.githubusercontent.com/43385877/114379996-d584b100-9b89-11eb-95f8-73d9efe5161d.PNG)
 
 
-
+Si queremos desplegar nuesta apliación en una maquina virtual o en nuestro propio equipo es muy sencillo, solo deberemos clonar el repositorio y ejecutar el JAR File que encontraremos dentro del directorio target, para ello deberemos tener instalado y actualizado Java y Java jdk para el JAVA SE platform. Una vez ejecutado podremos ir a nuestro navegador y ir a la siguiente dirección: https://localhost:8443 y ya podremos utilizar la aplicación.
 
 
 
