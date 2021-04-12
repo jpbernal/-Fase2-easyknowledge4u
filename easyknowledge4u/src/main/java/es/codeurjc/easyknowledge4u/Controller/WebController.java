@@ -84,7 +84,7 @@ public class WebController {
 			model.addAttribute("curso", curso);
 			return "removedcurso";
 		}else {
-			return "removedcurso";
+			return "cursos";
 		}
 		
 	}
