@@ -22,7 +22,6 @@ public class WebController {
 	@SuppressWarnings("unused")
 	@Autowired
 	private UserRepository userRepository;
-	@SuppressWarnings("unused")
 	@Autowired
 	private ContactoRepository contactoRepository;
 	@SuppressWarnings("unused")
@@ -145,18 +144,18 @@ public class WebController {
 	}
 
 	@RequestMapping("/guardarContacto")
-	public String guardarContacto (Model model, @RequestParam String nombre, 
-		    @RequestParam String correo, 
-		    @RequestParam String texto) {
+	public String guardarContacto (Model model, @RequestParam String name, 
+		    @RequestParam String email, 
+		    @RequestParam String text) {
 
-		        model.addAttribute("Nombre", nombre);
-		        model.addAttribute("Email", correo);
-		        model.addAttribute("Texto", texto);
+		        model.addAttribute("Nombre", name);
+		        model.addAttribute("Email", email);
+		        model.addAttribute("Texto", text);
 
-		        Contacto contactoprueba = new Contacto (nombre, correo, texto);
+		        Contacto contactoprueba = new Contacto (name, email, text);
 		        contactoRepository.save(contactoprueba);
 		
-		return "contacto-envidado";
+		return "guardarContacto";
 	}
 
 }
