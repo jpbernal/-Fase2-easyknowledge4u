@@ -1,0 +1,14 @@
+{{>header}}
+
+		<h2>Cursos</h2>
+		<ul class="items">
+			{{#cursos}}
+			<li><a href="/cursos/{{id}}">{{title}}</a></li>
+			{{/cursos}}
+		</ul>
+
+		{{#admin}}
+		<button onclick="location.href='/newcurso'">Nuevo curso</button>
+		{{/admin}}
+
+{{>footer}}
