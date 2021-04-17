@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
+import es.codeurjc.easyknowledge4u.MailService;
 import es.codeurjc.easyknowledge4u.Models.*;
 import es.codeurjc.easyknowledge4u.Repositories.*;
 
@@ -33,6 +34,9 @@ public class WebController {
 	
 	@Autowired
 	private UserComponent userComponent;
+	
+	@Autowired
+	private MailService mailService;
 
 	@ModelAttribute
 	public void addAttributes(Model model) {
@@ -47,7 +51,6 @@ public class WebController {
 			model.addAttribute("admin", userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
 		}
 	}
-	
 	
 	@GetMapping("/")
 	public String mostrarCursos(Model model) {
@@ -134,6 +137,28 @@ public class WebController {
 	public String loginerror(Model model) {
 		return "loginerror";
 	}
+	@RequestMapping("/inscribirse/{id}")
+	public String inscribirse(Model model, @PathVariable long id) {
+		
+		Optional<Curso> op = service.findOne(id);
+		if(op.isPresent()) {
+			Curso curso = op.get();
+			model.addAttribute("curso", curso);
+			return "inscribirse";
+		}else {
+			return "cursos";
+		}
+	}
+	
+	@RequestMapping("/inscribirse/inscritoEnviado")
+	public String inscritoEnviado (Model model, @RequestParam String correo) {
+
+		model.addAttribute("correo", correo);
+		mailService.sendMail("Te has inscrito correctamente en el curso");
+		
+		return "enviado";
+	}
+		
 	
 	@RequestMapping("/contacto")
 	public String Contacto (Model model) {

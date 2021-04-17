@@ -11,34 +11,20 @@
 	<groupId>es.codeurjc</groupId>
 	<artifactId>easyknowledge4u</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
 	<name>easyknowledge4u</name>
 	<description>DAD_project</description>
+	<packaging>jar</packaging>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 	<dependency>
     <groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-web</artifactId>
-    <exclusions>
-      <exclusion> 
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-      </exclusion>
-      <exclusion> 
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-      </exclusion>
-    </exclusions> 
   </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mustache</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -66,10 +52,10 @@
 	<build>
 		<plugins>
 			<plugin>
+			
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

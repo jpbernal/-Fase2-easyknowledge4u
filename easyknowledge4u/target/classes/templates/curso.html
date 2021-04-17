@@ -1,0 +1,23 @@
+{{>header}}
+		
+<div>
+  <h2>Curso "{{curso.title}}"</h2>
+  <div>
+    <p>Precio: "{{curso.precio}}"</p>
+  </div>
+  <p>
+    {{#logged}}
+    <button onclick="location.href='/inscribirse/{{curso.id}}'">Inscribirse</button>
+    	{{#admin}}
+		<button onclick="location.href='/removecurso/{{curso.id}}'">Borrar curso</button>
+		
+    
+    	<button onclick="location.href='/editcurso/{{curso.id}}'">Editar curso</button>
+    	{{/admin}}
+    {{/logged}}
+    <br>
+    <button onclick="location.href='/'">Todos los cursos</button>
+  </p>
+  </div>		
+
+{{>footer}}

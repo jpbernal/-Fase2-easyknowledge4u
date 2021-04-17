@@ -7,7 +7,7 @@
   </div>
   <p>
     {{#logged}}
-    
+    <button onclick="location.href='/inscribirse/{{curso.id}}'">Inscribirse</button>
     	{{#admin}}
 		<button onclick="location.href='/removecurso/{{curso.id}}'">Borrar curso</button>
 		

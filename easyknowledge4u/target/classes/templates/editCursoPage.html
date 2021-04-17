@@ -1,0 +1,21 @@
+{{>header}}
+
+  <form action="/editcurso" method="post">
+  <h2>Curso "{{curso.title}}"</h2>
+  <input type="hidden" name="id" value="{{curso.id}}"/>
+  <div>
+    <label>Asignatura: </label>
+    <input name="title" value="{{curso.title}}" placeholder="title"/>
+  </div>
+  <div>
+    <label>Precio: </label>
+    <textarea name="precio" placeholder="precio">{{curso.precio}}</textarea>
+  </div>
+   <input type="hidden" name="_csrf" value="{{token}}"/>
+  <p>
+    <button onclick="location.href='/curso/{{curso.id}}'; return false;">Cancelar</button>
+    <input type="submit" value="Guardar"/>
+  </p>
+  </form>
+  
+{{>footer}}
