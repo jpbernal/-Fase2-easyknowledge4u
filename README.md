@@ -16,7 +16,7 @@ Una **parte privada**, que permite la gestión de los diferentes cursos, crear, 
 
 ## Entidades
 
-**Cliente**: usuario que accede a nuestra página web, pueden ser alumnos, docentes y administradores de la web.
+**Cliente**: usuario que accede a nuestra página web, pueden ser alumnos o administradores de la web.
 
 **Cursos**: los distintos cursos ofertados en nuestra web, pueden ser de matemáticas, inglés o informática inicialmente, se pueden tanto crear nuevos, editar los existentes o eliminarlos.
 
