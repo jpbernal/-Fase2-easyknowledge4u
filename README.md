@@ -24,12 +24,7 @@ Una **parte privada**, que permite la gestión de los diferentes cursos, crear, 
 
 ## Funcionamiento del servicio interno
 
-Log in / Log out 
-
 Envío de correo al cliente con la confirmación del curso y la información del mismo
-
-Permitir la creación, edición, borrado y gestión de los cursos ofertados.
-
 
 ## Integrantes
 
@@ -153,12 +148,3 @@ Si iniciamos sesion como administrador con las credenciales correctas, podremos:
 
 
 Si queremos desplegar nuesta apliación en una maquina virtual o en nuestro propio equipo es muy sencillo, solo deberemos clonar el repositorio y ejecutar el JAR File que encontraremos dentro del directorio target, para ello deberemos tener instalado y actualizado Java y Java jdk para el JAVA SE platform. Una vez ejecutado podremos ir a nuestro navegador y ir a la siguiente dirección: https://localhost:8443 y ya podremos utilizar la aplicación.
-
-
-
-
-
-
-
-
-
