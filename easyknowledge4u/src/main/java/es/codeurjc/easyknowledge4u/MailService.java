@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 public class MailService {
 
 
-    private static final String MAIL_SERVICE_URL = "http://localhost:9000";
+    private static final String MAIL_SERVICE_URL = "http://localhost:8080";
 
     public void sendMail(String messageText) {
 		
