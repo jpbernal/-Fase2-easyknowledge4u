@@ -148,3 +148,14 @@ Si iniciamos sesion como administrador con las credenciales correctas, podremos:
 
 
 Si queremos desplegar nuesta apliación en una maquina virtual o en nuestro propio equipo es muy sencillo, solo deberemos clonar el repositorio y ejecutar el JAR File que encontraremos dentro del directorio target, para ello deberemos tener instalado y actualizado Java y Java jdk para el JAVA SE platform. Una vez ejecutado podremos ir a nuestro navegador y ir a la siguiente dirección: https://localhost:8443 y ya podremos utilizar la aplicación.
+
+-----------------------
+
+## Fase 4
+
+-----------------------
+
+Aplicación dockerizada en diferentes contenedores usando docker compose configurado en docker-compose.yml
+<img width="1440" alt="Captura de pantalla 2021-05-12 a las 19 40 49" src="https://user-images.githubusercontent.com/43385877/118020284-33a7de00-b35a-11eb-9018-7dcc7546270a.png">
+
+
