@@ -155,7 +155,11 @@ Si queremos desplegar nuesta apliación en una maquina virtual o en nuestro prop
 
 -----------------------
 
-Aplicación dockerizada en diferentes contenedores usando docker compose configurado en docker-compose.yml
+Aplicación dockerizada en diferentes contenedores usando docker compose configurado en docker-compose.yml para todos los servicios
 <img width="1440" alt="Captura de pantalla 2021-05-12 a las 19 40 49" src="https://user-images.githubusercontent.com/43385877/118020284-33a7de00-b35a-11eb-9018-7dcc7546270a.png">
+
+Se ha implementado el cacheo de usuarios, mediante la clase CacheController y modificado su repositorio.
+
+Implementado Haproxy, generada una key con OpenSSL con un certificado .pem
 
 
