@@ -28,8 +28,8 @@ services:
             - "2443:2443"
       image: haproxy:latest
       volumes:
-              - "./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro"
-      
+              - ./Haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro 
+              - ./Haproxy/cert.pem:/usr/local/etc/ssl/cert.pem:ro 
 networks:
     easyknowledge-network:
         driver: bridge
