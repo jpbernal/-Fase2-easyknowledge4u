@@ -1,23 +1,20 @@
 version: '3.9'
 services:
-   haproxy:
-    build: .
-    ports:
-      - "80:80"
-    image: haproxy:latest
-    depends_on:
-      - easyknowledge4u
-      - internal_service
-      
    easyknowledge4u:
         build: .
-        image: easyknowledge4u:latest
         ports:
             - 8443:8443
         networks:
             - easyknowledge-network
             
-   internal_service:
+   easyknowledge4u2:
+        build: .
+        ports:
+            - 8444:8443
+        networks:
+            - easyknowledge-network  
+            
+   internalservice:
         image: serviciointerno:latest
         ports:
             - 8080:8080
@@ -25,6 +22,14 @@ services:
             - easyknowledge4u   
         networks:
             - easyknowledge-network
+   haproxy:
+      #build: ./Haproxy
+      ports:
+            - "2443:2443"
+      image: haproxy:latest
+      volumes:
+              - "./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro"
+      
 networks:
     easyknowledge-network:
         driver: bridge
