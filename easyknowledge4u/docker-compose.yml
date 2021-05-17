@@ -1,20 +1,46 @@
 version: '3.9'
 services:
-   easyknowledge4u:
-        build: .
+  
+       database:
+        container_name: database
+        image: mysql:8.0.25
+        environment:
+            - MYSQL_ROOT_PASSWORD=password
+            - MYSQL_USER=user
+            - MYSQL_DATABASE=easyknowledge
+            - MYSQL_PASSWORD=password
         ports:
-            - 8443:8443
-        networks:
+            - 3307:3306
+        networks: 
+            - easyknowledge-network
+       easyknowledge4u:
+         container_name: easyknowledge4u
+         build: .
+         environment:
+            - SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/easyknowledge?useSSL=false&allowPublicKeyRetrieval=true
+            
+         depends_on:
+            - database
+         ports:
+            - 8445:8443
+         networks:
             - easyknowledge-network
             
-   easyknowledge4u2:
+       easyknowledge4u2:
+        container_name: easyknowledge4u2
         build: .
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/easyknowledge?useSSL=false&allowPublicKeyRetrieval=true 
+            
+        depends_on:
+            - database
         ports:
-            - 8444:8443
+            - 8446:8443
         networks:
             - easyknowledge-network  
-            
-   internalservice:
+              
+       internalservice:
+        container_name: internalservice
         image: serviciointerno:latest
         ports:
             - 8080:8080
@@ -22,14 +48,24 @@ services:
             - easyknowledge4u   
         networks:
             - easyknowledge-network
-   haproxy:
-      #build: ./Haproxy
-      ports:
-            - "2443:2443"
-      image: haproxy:latest
-      volumes:
+            
+       haproxy:
+        container_name: balanceador
+       #build: ./Haproxy
+        ports:
+              - "8888:8080"
+              - "9999:4443" 
+             
+        image: haproxy:latest
+        volumes:
               - ./Haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro 
               - ./Haproxy/cert.pem:/usr/local/etc/ssl/cert.pem:ro 
+              
+        depends_on:
+              - easyknowledge4u       
+              - easyknowledge4u2
+        networks:
+            - easyknowledge-network      
 networks:
     easyknowledge-network:
         driver: bridge

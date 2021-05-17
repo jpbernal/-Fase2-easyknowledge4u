@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: es.codeurjc.easyknowledge4u.Easyknowledge4uApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.426 s - in es.codeurjc.easyknowledge4u.Easyknowledge4uApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.617 s - in es.codeurjc.easyknowledge4u.Easyknowledge4uApplicationTests
