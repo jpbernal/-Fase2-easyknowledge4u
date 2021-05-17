@@ -148,3 +148,21 @@ Si iniciamos sesion como administrador con las credenciales correctas, podremos:
 
 
 Si queremos desplegar nuesta apliación en una maquina virtual o en nuestro propio equipo es muy sencillo, solo deberemos clonar el repositorio y ejecutar el JAR File que encontraremos dentro del directorio target, para ello deberemos tener instalado y actualizado Java y Java jdk para el JAVA SE platform. Una vez ejecutado podremos ir a nuestro navegador y ir a la siguiente dirección: https://localhost:8443 y ya podremos utilizar la aplicación.
+
+
+-----------------------
+
+## Fase 4
+
+-----------------------
+
+En esta fase se han dockerizado todos los servicios como podemos observar a continuación junto con la implementación de un balanceador web
+<img width="1149" alt="Captura de pantalla 2021-05-17 a las 17 42 23" src="https://user-images.githubusercontent.com/43385877/118517380-704b4f00-b737-11eb-8a00-229aaabd9743.png">
+
+Para ejecutar la aplicación suponiendo que tenemos los .jar de los directorios /target, deberemos hacer "docker build -t nombre . para crear las correspondientes docker images. Una vez creadas, nos posicionaremos en el directorio donde tengamos el docker-compose.yml y escribiremos el siguiente comando: docker compose up.
+
+Con esto arrancaremos nuestra aplicación con todos los servicios dockerizados. Podremos acceder mediante la url del balanceador web -> https://localhost:9999
+
+Este balanceador web se ha implementado mediante Haproxy, con un modo tcp (nivel 4). Podremos configurarlo editando el fichero haproxy.cfg que encontraremos en la carpeta Haproxy.
+
+
