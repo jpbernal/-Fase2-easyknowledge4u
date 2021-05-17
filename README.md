@@ -165,4 +165,6 @@ Con esto arrancaremos nuestra aplicación con todos los servicios dockerizados. 
 
 Este balanceador web se ha implementado mediante Haproxy, con un modo tcp (nivel 4). Podremos configurarlo editando el fichero haproxy.cfg que encontraremos en la carpeta Haproxy.
 
+Video Demo: https://youtu.be/oyXD5fQ3r2I
+
 
